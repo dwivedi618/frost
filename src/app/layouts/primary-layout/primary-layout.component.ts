@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -8,20 +8,14 @@ import { map, shareReplay } from 'rxjs/operators';
   templateUrl: './primary-layout.component.html',
   styleUrls: ['./primary-layout.component.scss']
 })
-export class PrimaryLayoutComponent implements OnInit{
-  primaryLinks = [
-    { path : '',icon :'notifications', name : 'Activity' },
-    { path : 'chats',icon :'message', name : 'Chats' },
-    { path : 'groups',icon :'groups', name : 'Groups' },
-    { path : 'calls',icon :'call', name : 'Calls' },
-    { path : 'files',icon :'folder', name : 'Files' },
-   
+export class PrimaryLayoutComponent {
 
-  ];
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches),
+      shareReplay()
+    );
 
-  constructor() {}
-  ngOnInit(){
-
- }
+  constructor(private breakpointObserver: BreakpointObserver) {}
 
 }
