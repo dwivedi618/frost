@@ -9,6 +9,10 @@ import { map, shareReplay } from 'rxjs/operators';
   styleUrls: ['./primary-layout.component.scss']
 })
 export class PrimaryLayoutComponent implements OnInit{
+  
+  /**
+   * primary links
+   */
   primaryLinks = [
     { path : '',icon :'notifications', name : 'Activity' },
     { path : 'chats',icon :'message', name : 'Chats' },
