@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { SharedModule } from './../../sharedModules/shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -11,6 +12,7 @@ import { CallLayoutComponent } from './call-layout/call-layout.component';
   imports: [
     CommonModule,
     CallRoutingModule,
+    RouterModule,
     SharedModule
   ]
 })

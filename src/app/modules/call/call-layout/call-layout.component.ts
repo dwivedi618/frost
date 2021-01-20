@@ -7,6 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CallLayoutComponent implements OnInit {
 
+    /**
+   * primary links
+   */
+  callLinks = [
+    { path : '',icon :'access_time', name : 'Recents' },
+    { path : 'speed-dial',icon :'call', name : 'Speed Dial' },
+    { path : 'contacts',icon :'contacts', name : 'Contacts' },
+    { path : 'voice-mail',icon :'voicemail', name : 'Voice Mail' },
+  ] 
   constructor() { }
 
   ngOnInit(): void {

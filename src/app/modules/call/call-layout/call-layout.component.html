@@ -1,1 +1,23 @@
-<p>call-layout works!</p>
+<app-header></app-header>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" [mode]="'side'" [opened]="true">
+    <div class="primary_toolbar_option">
+        <div class="p-3">
+          <small><b>Calls</b></small>
+        </div>
+        <div >
+            <button *ngFor="let link  of callLinks"  mat-button routerLink="{{link.path}}" class="w-100 text-left">
+                  <mat-icon class="material-icons-outlined pt-1" style="font-size: 1rem;">{{link.icon}}</mat-icon>
+                  <b class="text-link pl-4">{{link.name}}</b>
+              </button>
+        </div>
+      </div>
+   
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+    <router-outlet></router-outlet>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>
