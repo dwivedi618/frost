@@ -4,17 +4,19 @@
   <mat-sidenav #drawer class="sidenav" [mode]="'side'" [opened]="true">
 
     <mat-nav-list>
-
-      <a mat-list-item routerLink="../dashboard" routerLinkActive="active">Dashboard
-        <mat-icon mat-list-icon>equalizer</mat-icon>
+      <a *ngFor="let link of primaryLinks" mat-list-item routerLink="{{link.path}}" routerLinkActive="active" class="layout">
+        <div class="layout ">
+          <div class="d-flex flex-column" >
+            <div mat-line class="text-center"><mat-icon class="">{{link.icon}}</mat-icon></div>
+            <div mat-line><small mat-line style="font-size: 10px;">{{link.name}}</small></div>
+          </div>
+        </div>
       </a>
-   
-     
-
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
 
+    <router-outlet></router-outlet>
     <!-- Add Content Here -->
   </mat-sidenav-content>
 </mat-sidenav-container>
