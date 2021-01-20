@@ -3,16 +3,40 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" [mode]="'side'" [opened]="true">
 
-    <mat-nav-list>
-      <a *ngFor="let link of primaryLinks" mat-list-item routerLink="{{link.path}}" routerLinkActive="active" class="layout">
-        <div class="layout ">
-          <div class="d-flex flex-column" >
-            <div mat-line class="text-center"><mat-icon class="">{{link.icon}}</mat-icon></div>
-            <div mat-line><small mat-line style="font-size: 10px;">{{link.name}}</small></div>
-          </div>
+    <div class="primary_toolbar">
+      <div class="links_container ">
+        <div class="links text-white-50 ">
+
+         
+          <a *ngFor="let link of primaryLinks" routerLink="{{link.path}}" routerLinkActive="active" class="layout">
+            <div class="layout">
+              <div class="d-flex flex-column align-items-center text-center py-2" >
+                <div mat-line class="text-center w-100"><mat-icon class="material-icons-outlined">{{link.icon}}</mat-icon></div>
+                <div mat-line class="text-center w-100"><small mat-line style="font-size: 10px;">{{link.name}}</small></div>
+              </div>
+            </div>
+          </a>
+          <button mat-icon-button >
+            <mat-icon class="material-icons-outlined">more_vert</mat-icon>
+          </button>
+        
         </div>
-      </a>
-    </mat-nav-list>
+        <div class="spacer">
+        </div>
+        <div class="links text-white-50 ">
+         
+          <button mat-icon-button >
+            <mat-icon class="material-icons-outlined">apps</mat-icon>
+          </button>
+          <button mat-icon-button >
+            <mat-icon class="material-icons-outlined">help</mat-icon>
+          </button>
+        
+
+        </div>
+      </div>
+    </div>
+   
   </mat-sidenav>
   <mat-sidenav-content>
 
