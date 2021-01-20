@@ -12,6 +12,8 @@ header mat-toolbar{
   height: 48px;
 }
 .sidenav-container {
+  position: fixed;
+  top: 3rem;
   height: calc(100% - 3rem);
 }
 
