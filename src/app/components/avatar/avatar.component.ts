@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
 })
 export class AvatarComponent implements OnInit,AfterViewInit {
   user: any;
-  email: any;
+  email = 'info@frost.com';
   first_name: any;
-  name: string;
+  name = 'Frost Dep';
   intials:any;
 
   constructor(
@@ -20,7 +20,7 @@ export class AvatarComponent implements OnInit,AfterViewInit {
   ) { }
 
   ngOnInit(){
-    this.name = 'FROST D'
+   
   
   }
   ngAfterViewInit(){
