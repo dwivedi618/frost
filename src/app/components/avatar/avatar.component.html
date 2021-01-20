@@ -1,0 +1,45 @@
+<div>
+    <button mat-icon-button [matMenuTriggerFor]="userProfile" class="" style="border-radius: 5rem;">
+      <div style="width: 32px;height: 32px;">
+      <div class="avatar_small box_shadow_0 bg-primary text-white layout "><b>{{intials}}</b></div>
+    </div>
+    </button>
+    <mat-menu #userProfile="matMenu">
+
+      <button mat-button (click)="navigate('profile')" class="box_shadow_0 mt-n3 pt-1" style="border-radius: 0%;">
+        <div class="container py-4 ">
+          <div class="avatar_container">
+            <div class="avatar_large box_shadow_0 bg-primary text-dark" id="profileImage2"></div>
+          </div>
+          <div class="text-center pt-3">
+            <strong class="text-dark-50 " style="display: block;line-height: 0rem;">{{ name }}</strong>
+            <small class="text-dark " style="line-height: 1rem;">{{ email}}</small>
+          </div>
+          <div class="d-flex m-0">
+            <div class="px-1">
+              <button mat-button class="rounded-lg bg-light ">
+                <mat-icon style="font-size: 1rem;" class="animated_icon text-muted p-0 pt-1 m-0">settings</mat-icon>
+                <small>Manage</small>
+              </button>
+            </div>
+            <div class="px-1">
+              <button (click)="navigateToPurchasePlan();$event.stopPropagation()"  mat-button class="rounded-lg bg-mylight">
+                <mat-icon style="font-size: 1rem;" class="animated_icon text-muted p-0 pt-1 m-0">verified_user</mat-icon>
+                <small>Upgrade</small>
+              </button>
+            </div>
+          </div>
+        </div>
+      </button>
+  
+
+      <a mat-menu-item [routerLink]="['']">
+        <mat-icon mat-list-icon>help</mat-icon>
+        <span>Help</span>
+      </a>
+      <a mat-menu-item (click)="logout()">
+        <mat-icon mat-list-icon>lock</mat-icon>
+        <span>Logout</span>
+      </a>
+    </mat-menu>
+  </div>

@@ -1,0 +1,13 @@
+header{
+    position: fixed;
+    display: block;
+    width: 100vw;
+    top : 0;
+    z-index: 2;
+}
+header ::ng-deep mat-toolbar mat-toolbar-row .mat-toolbar-multiple-rows {
+    max-height: 48px;
+}
+header mat-toolbar{
+    height: 48px;
+}
