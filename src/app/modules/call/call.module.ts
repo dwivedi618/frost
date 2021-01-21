@@ -10,7 +10,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { SpeedDialComponent } from './speed-dial/speed-dial.component';
-
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [CallLayoutComponent, HistoryComponent, SpeedDialComponent],
@@ -19,9 +19,7 @@ import { SpeedDialComponent } from './speed-dial/speed-dial.component';
     CallRoutingModule,
     RouterModule,
     SharedModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule
+    MatGridListModule
   ]
 })
 export class CallModule { }
