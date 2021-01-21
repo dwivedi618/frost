@@ -54,6 +54,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     white-space: nowrap;
   }
 
+  .text-wrap-lg{
+    max-width: 15rem;
+    min-width: 4rem;
+    padding: 0 6px;
+    text-overflow: ellipsis;
+    overflow: hidden!important;
+    white-space: nowrap;
+  }
+
   .text-mylight{
     color : rgb(121, 121, 121)!important;
   }
@@ -78,4 +87,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-drawer-inner-container:hover::-webkit-scrollbar-thumb {
   visibility: visible;
   transition: 10ms all;
+}
+strong{
+  font-size: 1rem;
 }

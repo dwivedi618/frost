@@ -3,10 +3,20 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #drawer class="sidenav" [mode]="'side'" [opened]="true">
         <div class="primary_toolbar_option">
-            <div class="d-flex p-3">
-                <h3>Chats</h3>
-                <mat-icon>expand_more</mat-icon>
-            </div>
+          
+                <mat-toolbar class="px-0">
+                    <div class="d-flex layout px-2">
+                        <strong  >Chats</strong>
+                        <mat-icon class="mat-icon-sm pt-1">expand_more</mat-icon>
+                    </div>
+                    <div class="spacer"></div>
+                    <button mat-icon-button>
+                        <mat-icon class="mat-icon-sm text-mylight pt-0">filter_alt</mat-icon>
+                    </button>
+                    <button mat-icon-button>
+                        <mat-icon class="mat-icon-sm text-mylight pt-0">edit</mat-icon>
+                    </button>
+                </mat-toolbar>
             <div>
                 <div class="p-3">
                     <small>recents</small>
@@ -31,8 +41,33 @@
 
     </mat-sidenav>
     <mat-sidenav-content>
-        <mat-toolbar style="position: sticky;top: 0rem;display: block" class="bg-white">
-            <h3 class="pl-4">History</h3>
+        <mat-toolbar>
+            <nav mat-tab-nav-bar >
+                <div class="d-flex align-items-center">
+                    <div style="width: 32px;min-width: 32px; height: 32px;border-radius: 1rem;background-color: #badb6e;" class="layout">
+                        <small> SD</small>
+                    </div>
+                    <div class="d-flex flex-column py-1 px-2">
+                        <span  style="font-size: 16px;" class="py-1 text-wrap-lg">Critical discussion - Thor and Ironman</span>
+                    </div>
+                    
+                </div>
+                <button mat-icon-button>
+                    <mat-icon class="mat-icon-sm">cached</mat-icon>
+                </button> 
+                <a mat-tab-link *ngFor="let link of links"
+                   (click)="activeLink = link"
+                   [active]="activeLink == link"> 
+                   <strong class="text-mylight">{{link}}</strong>
+                 </a>
+                 <button mat-raised-button color="primary">
+                    <mat-icon class="mat-icon-sm">video_call</mat-icon>
+                </button>
+                <button mat-raised-button color="primary">
+                    <mat-icon class="mat-icon-sm">call</mat-icon>
+                </button>
+                        
+              </nav>
         </mat-toolbar>
         <main class="p-4 " >
             <router-outlet></router-outlet>

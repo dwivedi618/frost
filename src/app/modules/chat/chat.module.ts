@@ -4,14 +4,15 @@ import { CommonModule } from '@angular/common';
 
 import { ChatRoutingModule } from './chat-routing.module';
 import { ChatLayoutComponent } from './chat-layout/chat-layout.component';
-
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [ChatLayoutComponent],
   imports: [
     CommonModule,
     ChatRoutingModule,
-    SharedModule
+    SharedModule,
+    MatTabsModule
   ]
 })
 export class ChatModule { }

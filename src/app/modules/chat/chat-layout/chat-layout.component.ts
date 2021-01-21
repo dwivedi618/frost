@@ -11,13 +11,7 @@ export class ChatLayoutComponent implements OnInit {
    * recentChats
    */
   recentChats = [
-    { path : 'history',icon :'access_time', name : 'Recents' },
-    { path : 'speed-dial',icon :'call', name : 'Speed Dial' },
-    { path : 'contacts',icon :'contacts', name : 'Contacts' },
-    { path : 'voice-mail',icon :'voicemail', name : 'Voice Mail' },
-    { path : 'history',icon :'access_time', name : 'Recents' },
-    { path : 'speed-dial',icon :'call', name : 'Speed Dial' },
-    { path : 'contacts',icon :'contacts', name : 'Contacts' },
+  
     { path : 'voice-mail',icon :'voicemail', name : 'Voice Mail' }, { path : 'history',icon :'access_time', name : 'Recents' },
     { path : 'speed-dial',icon :'call', name : 'Speed Dial' },
     { path : 'contacts',icon :'contacts', name : 'Contacts' },
@@ -26,6 +20,12 @@ export class ChatLayoutComponent implements OnInit {
     { path : 'contacts',icon :'contacts', name : 'Contacts' },
     { path : 'voice-mail',icon :'voicemail', name : 'Voice Mail' },
   ] 
+
+  /**
+   * ChatOptions
+   */
+  links = ['Chat', 'Files', 'Notes'];
+  activeLink = this.links[0];
   constructor() { }
 
   ngOnInit(): void {
