@@ -1,3 +1,4 @@
+import { SpeedDialComponent } from './speed-dial/speed-dial.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CallLayoutComponent } from './call-layout/call-layout.component';
@@ -8,8 +9,8 @@ const routes: Routes = [
     path: '', component: CallLayoutComponent,
     children : [
       { path : '', component : HistoryComponent },
-      { path : 'history', component : HistoryComponent }
-
+      { path : 'history', component : HistoryComponent },
+      { path : 'speed-dial', component : SpeedDialComponent}
     ]
   }
 ];

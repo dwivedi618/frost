@@ -1,3 +1,7 @@
+.table-container {
+  height: calc(100vh - 9.2rem); 
+  overflow: auto;
+  }
 .full-width-table {
   width: 100%;
 }

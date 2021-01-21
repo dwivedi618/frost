@@ -9,10 +9,11 @@ import { HistoryComponent } from './history/history.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { SpeedDialComponent } from './speed-dial/speed-dial.component';
 
 
 @NgModule({
-  declarations: [CallLayoutComponent, HistoryComponent],
+  declarations: [CallLayoutComponent, HistoryComponent, SpeedDialComponent],
   imports: [
     CommonModule,
     CallRoutingModule,

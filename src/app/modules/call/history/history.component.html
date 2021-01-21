@@ -1,4 +1,9 @@
-<div class="w-100 h-100 " >
+<section>
+<mat-toolbar  class="bg-white">
+  <h3 class="">History</h3>
+</mat-toolbar>
+<div class="table-container ">
+  <div class="w-100 h-100 ">
   <table mat-table class="w-100" matSort aria-label="Elements">
 
 
@@ -41,7 +46,6 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-
   <mat-paginator #paginator
       [length]="dataSource?.data.length"
       [pageIndex]="0"
@@ -49,3 +53,5 @@
       [pageSizeOptions]="[25, 50, 100, 250]">
   </mat-paginator>
 </div>
+</div>
+</section>
