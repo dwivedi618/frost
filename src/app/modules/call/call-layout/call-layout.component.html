@@ -1,0 +1,34 @@
+<!-- <app-header></app-header> -->
+
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" [mode]="'side'" [opened]="true">
+        <div class="primary_toolbar_option">
+            <div class="p-3">
+                <small><b>Calls</b></small>
+            </div>
+            <div>
+                <button *ngFor="let link  of callLinks" mat-button routerLink="{{link.path}}" routerLinkActive="active" routerLinkActive #rla="routerLinkActive"  class="w-100 text-left" [class.active]="rla.isActive">
+                    <mat-icon class="material-icons-outlined pt-1" style="font-size: 1rem;">{{link.icon}}</mat-icon>
+                    <b class="text-link pl-4">{{link.name}}</b>
+                </button>
+            </div>
+            <div class="spacer">
+            </div>
+            <div class="px-4 py-2 layout">
+                <button mat-raised-button color="primary" class="w-100">
+                    <mat-icon class="mat-icon-sm pt-1">call</mat-icon>
+                    Make a call
+                </button>
+            </div>
+        </div>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar style="position: sticky;top: 0rem;display: block" class="bg-white">
+            <h3 class="pl-4">History</h3>
+        </mat-toolbar>
+        <main class="p-4 " >
+            <router-outlet></router-outlet>
+        </main>
+    </mat-sidenav-content>
+</mat-sidenav-container>

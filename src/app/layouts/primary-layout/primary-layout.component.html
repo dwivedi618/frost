@@ -1,0 +1,46 @@
+<app-header></app-header>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" [mode]="'side'" [opened]="true">
+
+    <div class="primary_toolbar">
+      <div class="links_container ">
+        <div class="links text-white-50 ">
+
+         
+          <a *ngFor="let link of primaryLinks" routerLink="{{link.path}}"   class="layout" routerLinkActive #rla="routerLinkActive" >
+            <div class="layout">
+              <div class="d-flex flex-column align-items-center text-center py-2" >
+                <div mat-line class="text-center w-100"><mat-icon class="material-icons-outlined" [class.active_sublink]="rla.isActive">{{link.icon}}</mat-icon></div>
+                <div mat-line class="text-center w-100"><small mat-line style="font-size: 10px;" [class.active_sublink]="rla.isActive">{{link.name}}</small></div>
+              </div>
+            </div>
+          </a>
+          <button mat-icon-button >
+            <mat-icon class="material-icons-outlined">more_vert</mat-icon>
+          </button>
+        
+        </div>
+        <div class="spacer">
+        </div>
+        <div class="links text-white-50 ">
+         
+          <button mat-icon-button >
+            <mat-icon class="material-icons-outlined">apps</mat-icon>
+          </button>
+          <button mat-icon-button >
+            <mat-icon class="material-icons-outlined">help</mat-icon>
+          </button>
+        
+
+        </div>
+      </div>
+    </div>
+   
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+    <router-outlet></router-outlet>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,41 @@
+<!-- <app-header></app-header> -->
+
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" [mode]="'side'" [opened]="true">
+        <div class="primary_toolbar_option">
+            <div class="d-flex p-3">
+                <h3>Chats</h3>
+                <mat-icon>expand_more</mat-icon>
+            </div>
+            <div>
+                <div class="p-3">
+                    <small>recents</small>
+                </div>
+                <button *ngFor="let link  of recentChats"  mat-button routerLink="{{link.path}}" routerLinkActive="active" routerLinkActive #rla="routerLinkActive"  class="w-100 text-left" [class.active]="rla.isActive">
+                    <div class="d-flex my-1 align-items-center">
+                        <div style="width: 32px;min-width: 32px; height: 32px;border-radius: 1rem;background-color: #badb6e;" class="layout">
+                            <small> SD</small>
+                        </div>
+                        <div class="d-flex flex-column py-1 ">
+                            <small style="line-height: 10px;" class="text-link py-1 text-wrap-md">{{link.name}}</small>
+                            <small style="line-height: 10px; font-size: 10px; " class=" text-mylight py-1 text-wrap-md" >you : how are you doing?buddy you are doing</small>
+                        </div>
+                        <small class="text-mylight">08/01</small>
+                    </div>
+                </button>
+            </div>
+            <div class="spacer">
+            </div>
+         
+        </div>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar style="position: sticky;top: 0rem;display: block" class="bg-white">
+            <h3 class="pl-4">History</h3>
+        </mat-toolbar>
+        <main class="p-4 " >
+            <router-outlet></router-outlet>
+        </main>
+    </mat-sidenav-content>
+</mat-sidenav-container>
