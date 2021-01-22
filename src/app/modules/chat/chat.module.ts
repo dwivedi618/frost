@@ -8,6 +8,9 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { ChatBoxComponent } from './chat-box/chat-box.component';
 import { ChatFileComponent } from './chat-file/chat-file.component';
 import { ChatNotesComponent } from './chat-notes/chat-notes.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [ChatLayoutComponent, ChatBoxComponent, ChatFileComponent, ChatNotesComponent],
@@ -15,7 +18,10 @@ import { ChatNotesComponent } from './chat-notes/chat-notes.component';
     CommonModule,
     ChatRoutingModule,
     SharedModule,
-    MatTabsModule
+    MatTabsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ]
 })
 export class ChatModule { }

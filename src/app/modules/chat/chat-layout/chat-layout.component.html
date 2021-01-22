@@ -41,7 +41,7 @@
 
     </mat-sidenav>
     <mat-sidenav-content>
-        <mat-toolbar>
+        <mat-toolbar class="position:sticky;top:0;">
             <mat-toolbar-row>
                 <nav mat-tab-nav-bar class="d-flex w-100 pr-2">
                     <div class="d-flex align-items-center">
@@ -58,9 +58,9 @@
                     </button>
 
                     <a mat-tab-link *ngFor="let link of links" routerLink="{{link.path}}"
-                       (click)="activeLink = link.name"
-                       [active]="activeLink == link.name" > 
-                       <small class="text-dark" [class.active] = "activeLink == link.name">{{link.name}}</small>
+                       (click)="activeLink = link.path"
+                       [active]="activeLink == link.path" > 
+                       <small class="text-dark" [class.active] = "activeLink == link.path">{{link.name}}</small>
                      </a>
                      <div>
                          <button mat-icon-button>
