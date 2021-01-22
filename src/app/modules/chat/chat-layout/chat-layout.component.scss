@@ -8,7 +8,10 @@ header{
   ::ng-deep mat-toolbar mat-toolbar-row .mat-toolbar-row{
     max-height: 48px;
   }
-  header mat-toolbar{
+  .mat-tab-link{
+    min-width: 54px;
+  }
+  mat-toolbar{
     height: 48px;
   }
   .sidenav-container {

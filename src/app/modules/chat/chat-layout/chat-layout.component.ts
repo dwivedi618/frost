@@ -24,8 +24,12 @@ export class ChatLayoutComponent implements OnInit {
   /**
    * ChatOptions
    */
-  links = ['Chat', 'Files', 'Notes'];
-  activeLink = this.links[0];
+  links = [
+    { path : 'chat', name : 'Chat' },
+    { path : 'files', name : 'Files' },
+    { path : 'notes', name : 'Notes' },
+];
+  activeLink = this.links[0].name;
   constructor() { }
 
   ngOnInit(): void {
