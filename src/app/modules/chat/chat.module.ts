@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { SharedModule } from './../../sharedModules/shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -16,6 +17,7 @@ import { MatSortModule } from '@angular/material/sort';
   declarations: [ChatLayoutComponent, ChatBoxComponent, ChatFileComponent, ChatNotesComponent],
   imports: [
     CommonModule,
+    RouterModule,
     ChatRoutingModule,
     SharedModule,
     MatTabsModule,
