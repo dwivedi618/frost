@@ -12,7 +12,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
-
+import {MatInputModule} from '@angular/material/input'; 
 
 
 @NgModule({
@@ -26,6 +26,7 @@ import { MatCardModule } from '@angular/material/card';
     MatIconModule,
     MatListModule,
     MatFormFieldModule,
+    MatInputModule,
     MatMenuModule,
     MatSortModule,
     MatTableModule,
@@ -42,6 +43,7 @@ import { MatCardModule } from '@angular/material/card';
     MatIconModule,
     MatListModule,
     MatFormFieldModule,
+    MatInputModule,
     MatMenuModule,
     MatSortModule,
     MatTableModule,

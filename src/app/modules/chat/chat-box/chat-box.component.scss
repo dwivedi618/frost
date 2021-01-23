@@ -1,0 +1,6 @@
+ .text-box ::ng-deep mat-toolbar mat-toolbar-row .mat-toolbar-row:not(.toolbar-row-1){
+    max-height: 48px;
+  }
+  .text-box mat-toolbar:not(.toolbar-1){
+    height: 48px;
+  }
