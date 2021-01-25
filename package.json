@@ -24,9 +24,11 @@
     "@types/jquery": "^3.5.4",
     "bootstrap": "^4.4.1",
     "jquery": "^3.5.1",
+    "ngx-emoji-picker": "^0.1.6",
     "popper.js": "^1.16.1",
     "rxjs": "~6.6.3",
     "tslib": "^2.0.0",
+    "twemoji": "^13.0.1",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
