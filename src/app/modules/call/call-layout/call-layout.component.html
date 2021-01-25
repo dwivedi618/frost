@@ -3,13 +3,24 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #drawer class="sidenav" [mode]="'side'" [opened]="true">
         <div class="primary_toolbar_option">
-            <div class="p-3">
-                <small><b>Calls</b></small>
-            </div>
+            <mat-toolbar class="px-0">
+                <div class="d-flex layout px-2">
+                    <strong  >Calls</strong>
+                    <mat-icon class="mat-icon-sm pt-1">expand_more</mat-icon>
+                </div>
+                <div class="spacer"></div>
+                <button mat-icon-button>
+                    <mat-icon class="mat-icon-sm text-mylight pt-0">filter_alt</mat-icon>
+                </button>
+                <button mat-icon-button>
+                    <mat-icon class="mat-icon-sm text-mylight pt-0">settings</mat-icon>
+                </button>
+            </mat-toolbar>
             <div>
+                
                 <button *ngFor="let link  of callLinks" mat-button routerLink="{{link.path}}" routerLinkActive="active" routerLinkActive #rla="routerLinkActive"  class="w-100 text-left" [class.active]="rla.isActive">
                     <mat-icon class="material-icons-outlined pt-1" style="font-size: 1rem;">{{link.icon}}</mat-icon>
-                    <b class="text-link pl-4">{{link.name}}</b>
+                    <small class="text-link pl-4">{{link.name}}</small>
                 </button>
             </div>
             <div class="spacer">
@@ -17,7 +28,7 @@
             <div class="px-4 py-2 layout">
                 <button mat-raised-button color="primary" class="w-100">
                     <mat-icon class="mat-icon-sm pt-1">call</mat-icon>
-                    Make a call
+                    <small> Make a call</small>
                 </button>
             </div>
         </div>

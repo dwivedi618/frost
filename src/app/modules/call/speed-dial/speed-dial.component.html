@@ -37,17 +37,17 @@
                 <mat-card  class="contact-card bg-white py-2">
                     <mat-card-header >
                       <img mat-card-avatar src="{{user?.thumbnail}}" alt="">
-                      <mat-card-title>{{user?.name}}</mat-card-title>
+                      <mat-card-title><small>{{user?.name}}</small></mat-card-title>
                       <mat-card-subtitle>{{user?.status}}</mat-card-subtitle>
                     </mat-card-header>
                     <mat-card-actions >
                         <mat-toolbar class="bg-white">
                             <button *ngFor="let op of user.actions" mat-icon-button >
-                              <mat-icon class="mat-icon-sm text-mylight pt-1">{{op?.icon}}</mat-icon>
+                              <mat-icon class="mat-icon-sm text-mylight pt-0">{{op?.icon}}</mat-icon>
                             </button>
                             <div class="spacer"></div>
                             <button mat-icon-button>
-                                <mat-icon class="mat-icon-sm pt-1 text-mylight">more_vert</mat-icon>
+                                <mat-icon class="mat-icon-sm pt-0 text-mylight">more_vert</mat-icon>
                             </button>
                         </mat-toolbar>
                      

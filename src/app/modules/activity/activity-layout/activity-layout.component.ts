@@ -58,7 +58,7 @@ export class ActivityLayoutComponent implements OnInit {
   links = [
     { path: 'timeline', name: 'Timeline' },
     { path: 'files', name: 'Files' },
-    { path: 'notes', name: 'Notes' },
+
   ];
 
   activeLink = this.links[0].path;
