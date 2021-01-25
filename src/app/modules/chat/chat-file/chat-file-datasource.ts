@@ -18,6 +18,7 @@ const EXAMPLE_DATA: ChatFileItem[] = [
   {id: 1, name: 'BlackDeer.pdf', type : 'pdf', sent_by : 'Soleman Bhai',shared_date : new Date()},
   {id: 2, name: 'Rope.png', type : 'png', sent_by : 'Suprime Court',shared_date : new Date()},
   {id: 2, name: 'live.mp4', type : 'mp4', sent_by : 'Suprime Court',shared_date : new Date()},
+  {id: 2, name: 'live.mp3', type : 'mp3', sent_by : 'Suprime Court',shared_date : new Date()},
 
 ];
 

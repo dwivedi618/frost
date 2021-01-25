@@ -1,0 +1,29 @@
+<section style="overflow: auto;height: calc(100vh - 10rem);" class="mt-n1">
+    <article *ngFor="let post of timeline" class="row m-0">
+        <div class="col-1">
+            <figure class="layout py-2">
+                <img class="avatar-sm" src="{{post.thumbnail}}">
+            </figure>
+        </div>
+        <div class="col-9">
+            <div class="d-flex flex-column py-1">
+                <div class="d-flex">
+                    <small class="py-1 strong">{{post.name || ''}}</small>
+                    <small class="py-1 px-2 ">{{post.post_time | date:'shortTime'}}</small>
+                </div>
+                <p>{{post.message || 'syncing...'}}</p>
+            </div>
+        </div>
+        <div class="col-1">
+
+        </div>
+    </article>
+</section>
+<section >
+    <div class="py-1">
+        <button mat-raised-button color="primary">
+            <mat-icon class="mat-icon-sm pt-1">create</mat-icon>
+            <small>New conversation</small>
+        </button>
+    </div>
+</section>

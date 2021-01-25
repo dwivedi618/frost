@@ -20,10 +20,7 @@ import { MatSortModule } from '@angular/material/sort';
     RouterModule,
     ChatRoutingModule,
     SharedModule,
-    MatTabsModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule
+  
   ]
 })
 export class ChatModule { }

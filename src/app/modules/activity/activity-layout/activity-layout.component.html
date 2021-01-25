@@ -6,7 +6,7 @@
           
                 <mat-toolbar class="px-0">
                     <div class="d-flex layout px-2">
-                        <strong  >Chats</strong>
+                        <strong  >Feeds</strong>
                         <mat-icon class="mat-icon-sm pt-1">expand_more</mat-icon>
                     </div>
                     <div class="spacer"></div>
@@ -14,7 +14,7 @@
                         <mat-icon class="mat-icon-sm text-mylight pt-0">filter_alt</mat-icon>
                     </button>
                     <button mat-icon-button>
-                        <mat-icon class="mat-icon-sm text-mylight pt-0">edit</mat-icon>
+                        <mat-icon class="mat-icon-sm text-mylight pt-0">settings</mat-icon>
                     </button>
                 </mat-toolbar>
             <div>
@@ -41,18 +41,17 @@
         </div>
 
     </mat-sidenav>
-    <mat-sidenav-content>
-        <mat-toolbar class="position:sticky;top:0;">
+    <mat-sidenav-content style="position: relative;">
+        <mat-toolbar class="position:fixed;top:0;right: 0">
             <mat-toolbar-row>
                 <nav mat-tab-nav-bar class="d-flex w-100 pr-2">
                     <div class="d-flex align-items-center" style="min-width:10rem">
-                        <div style="width: 32px;min-width: 32px; height: 32px;border-radius: 1rem;background-color: #d3ac8c;" class="layout pl-2">
-                            <img  class="avatar-md" src="{{activeChat.thumbnail}}" >
+                        <div style="width: 32px;min-width: 32px; height: 32px;background-color: #1a1a1a;" class="layout rounded-lg">
+                            <h1 class="p-0 m-0 text-light">T</h1>
                         </div>
                         <div class="d-flex flex-column py-1 px-2">
-                            <strong class="py-1 text-wrap-lg">{{activeChat.name || ''}}</strong>
+                            <strong class="py-1 text-wrap-lg">Timeline</strong>
                         </div>
-                        
                     </div>
                     <button mat-icon-button>
                         <mat-icon class="mat-icon-sm">cached</mat-icon>
@@ -85,7 +84,7 @@
                   </nav>
             </mat-toolbar-row>
         </mat-toolbar>
-        <main class="p-4 " >
+        <main class="px-3">
             <router-outlet></router-outlet>
         </main>
     </mat-sidenav-content>
