@@ -1,54 +1,121 @@
-<section class="" style="width : calc( 100vw - 22rem);height : calc( 100vh - 10rem);position: relative;">
-    <div class="w-100" style="position: absolute;top: 0;bottom:0">
+<section class="pb-5" style="overflow:auto;width : calc( 100vw - 22rem);height : calc( 100vh - 15rem);position: relative; ">
+ 
 
-
-        <mat-list role="list" class="w-100">
-            <mat-list-item role="listitem">Item 1</mat-list-item>
-            <mat-list-item role="listitem" class="text-right"> <small class="text-right">Item 2</small></mat-list-item>
-            <mat-list-item role="listitem">Item 3</mat-list-item>
-
-        </mat-list>
-
-        <div class="w-100 text-box" style="position: absolute;bottom: 0rem; right:0; left:0;">
-
-            <mat-toolbar class="toolbar-1">
-                <mat-toolbar-row class="toolbar-row-1">
-                    <form [formGroup]="messageForm" class="w-100">
-                    <mat-form-field appearance="fill" class="w-100">
-                        <input matInput placeholder="Type here" formControlName="message">
-                    </mat-form-field>
-                </form>
-                </mat-toolbar-row>
-            </mat-toolbar>
-            <mat-toolbar class="toolbar-2">
-                <mat-toolbar-row class="toolbar-row-2">
-
-                    <button mat-icon-button>
-                        <mat-icon class="mat-icon-sm text-mylight pt-0">attachment</mat-icon>
-                    </button>
-                    <button mat-icon-button>
-                        <mat-icon class=" text-mylight pt-0">gif</mat-icon>
-                    </button>
-                    <button mat-icon-button>
-                        <mat-icon class="mat-icon-sm text-mylight pt-0">note</mat-icon>
-                    </button>
-                    <button mat-icon-button>
-                        <mat-icon class="mat-icon-sm text-mylight pt-0">movie</mat-icon>
-                    </button>
-                    <button mat-icon-button (click)="toggled = !toggled" [(emojiPickerIf)]="toggled"
-                        [emojiPickerDirection]="'right'" (emojiPickerSelect)="handleSelection($event)">
-                        <mat-icon class="mat-icon-sm text-mylight pt-0">face</mat-icon>
-                    </button>
-                    <div class="spacer"></div>
-                    <button mat-icon-button>
-                        <mat-icon class="mat-icon-sm text-mylight pt-0">mic</mat-icon>
-                    </button>
-                    <button mat-icon-button>
-                        <mat-icon class="mat-icon-sm text-mylight pt-0">send</mat-icon>
-                    </button>
-                </mat-toolbar-row>
-            </mat-toolbar>
-
+<div class="row m-0   justify-content-end mb-2">
+    <div class="col-6 align-self-end text-left">
+        <div class="chat-bubble bg-mylight-1 box_shadow_3 " >
+            <small class="small" >Tuesday 20:22</small>
+            <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem laborum aliquid inventore! Expedita architecto voluptatum odio molestiae labore veniam nisi illo voluptas? Asperiores molestiae reiciendis rerum temporibus, consequuntur quidem nostrum.
+            </p>
         </div>
+    </div>
+</div>
+<div class="row m-0   justify-content-start mb-2">
+    <div class="col-6 align-self-end text-left ">
+        <div class="chat-bubble bg-mylight-3 ">
+            <small class="small" >Tuesday 20:24</small>
+            <p>hi how are you ballu?</p> 
+        </div>
+    </div>
+</div>
+<div class="row m-0   justify-content-end mb-2">
+    <div class="col-6 align-self-end text-left">
+        <div class="chat-bubble bg-mylight-1 box_shadow_3 " >
+            <small class="small" >Tuesday 20:22</small>
+            <p>
+             odio molestiamoleus, consequuntur quidem nostrum.
+            </p>
+        </div>
+    </div>
+</div>
+<div class="row m-0   justify-content-start mb-2">
+    <div class="col-6 align-self-end text-left ">
+        <div class="chat-bubble bg-mylight-3 ">
+            <small class="small" >Tuesday 20:24</small>
+            <p>ok?</p> 
+        </div>
+    </div>
+</div>
+<div class="row m-0   justify-content-end mb-2">
+    <div class="col-6 align-self-end text-left">
+        <div class="chat-bubble bg-mylight-1 box_shadow_3 " >
+            <small class="small" >Tuesday 20:22</small>
+            <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem laborum aliquid inventore! Expedita architecto voluptatum odio molestiae labore veniam nisi illo voluptas? Asperiores molestiae reiciendis rerum temporibus, consequuntur quidem nostrum.
+            </p>
+        </div>
+    </div>
+</div>
+<div class="row m-0   justify-content-start mb-2">
+    <div class="col-6 align-self-end text-left ">
+        <div class="chat-bubble bg-mylight-3 ">
+            <small class="small" >Tuesday 20:24</small>
+            <p>hi how are you ballu?</p> 
+        </div>
+    </div>
+</div>
+<div class="row m-0   justify-content-end mb-2">
+    <div class="col-6 align-self-end text-left">
+        <div class="chat-bubble bg-mylight-1 box_shadow_3 " >
+            <small class="small" >Tuesday 20:22</small>
+            <p>
+             odio molestiamoleus, consequuntur quidem nostrum.
+            </p>
+        </div>
+    </div>
+</div>
+<div class="row m-0   justify-content-start mb-2">
+    <div class="col-6 align-self-end text-left ">
+        <div class="chat-bubble bg-mylight-3 ">
+            <small class="small" >Tuesday 20:24</small>
+            <p>ok?</p> 
+        </div>
+    </div>
+</div>
+
+      
+
+</section>
+<section style="width : calc( 100vw - 22rem);">
+    <div class="w-100 text-box" >
+        <mat-toolbar class="toolbar-1">
+            <mat-toolbar-row class="toolbar-row-1">
+                <form [formGroup]="messageForm" class="w-100" (keydown.enter)="send()">
+                <mat-form-field appearance="fill" class="w-100">
+                    <input matInput placeholder="Type here" formControlName="message" autocomplete="off">
+                </mat-form-field>
+            </form>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <mat-toolbar class="toolbar-2">
+            <mat-toolbar-row class="toolbar-row-2">
+
+                <button mat-icon-button>
+                    <mat-icon class="mat-icon-sm text-mylight pt-0">attachment</mat-icon>
+                </button>
+                <button mat-icon-button>
+                    <mat-icon class=" text-mylight pt-0">gif</mat-icon>
+                </button>
+                <button mat-icon-button>
+                    <mat-icon class="mat-icon-sm text-mylight pt-0">note</mat-icon>
+                </button>
+                <button mat-icon-button>
+                    <mat-icon class="mat-icon-sm text-mylight pt-0">movie</mat-icon>
+                </button>
+                <button mat-icon-button (click)="toggled = !toggled" [(emojiPickerIf)]="toggled"
+                    [emojiPickerDirection]="'right'" (emojiPickerSelect)="handleSelection($event)">
+                    <mat-icon class="mat-icon-sm text-mylight pt-0">face</mat-icon>
+                </button>
+                <div class="spacer"></div>
+                <button mat-icon-button>
+                    <mat-icon class="mat-icon-sm text-mylight pt-0">mic</mat-icon>
+                </button>
+                <button mat-icon-button>
+                    <mat-icon class="mat-icon-sm text-mylight pt-0">send</mat-icon>
+                </button>
+            </mat-toolbar-row>
+        </mat-toolbar>
+
     </div>
 </section>

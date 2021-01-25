@@ -116,6 +116,67 @@ small.strong{
   font-weight:900;
   font-size: 0.8rem;
 }
+small.small{
+  color : rgb(121, 121, 121);
+  font-size: 0.7rem;
+}
 p{
   color: rgb(54, 54, 54);
 }
+
+.bg-mylight{
+  background-color: rgb(198, 237, 255);
+}
+.chat-bubble{
+  padding: 0.5rem 2rem;
+  border-radius: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  border: .01px solid rgba(105, 106, 134, 0.041);
+
+}
+.bg-mylight-1{
+  background-color: rgb(217, 232, 255);
+}
+.bg-mylight-2{
+  background-color: rgb(255, 248, 235);
+}
+.bg-mylight-3{
+  background-color: rgb(255, 242, 185);
+}
+.bg-mylight-4{
+  background-color: rgb(179, 179, 179);
+}
+
+.box-shadow-1{
+  box-shadow: 0px 30px 30px -20px rgba(0,0,0,0.1);
+}
+.box_shadow_5{
+  box-shadow: 0px 30px 30px -20px rgba(0,0,0,0.1);
+}
+.box_shadow_4{
+  box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+}
+
+.box_shadow_3{
+    box-shadow: 0 0 10px 0 #00000015
+    !important;
+  }
+.box_shadow_2{
+    box-sizing: border-box;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px;
+    margin: 0px auto 16px;
+    padding: 24px;
+    transition: box-shadow 0.25s ease 0s;
+}
+.box_shadow_1{
+    box-shadow: 0px 1px 4px rgba(0,0,0,0.25)!important;
+  }
+  .neo_shadow_1{
+    background: linear-gradient(145deg, #dedede, #ffffff);
+    box-shadow:  20px 20px 60px #d2d2d2, 
+                 -20px -20px 60px #ffffff;
+  }
+.box-shadow-0{
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.164)!important;
+  }

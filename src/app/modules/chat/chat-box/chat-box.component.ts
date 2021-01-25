@@ -25,4 +25,8 @@ export class ChatBoxComponent implements OnInit {
     const msg = this.messageForm.get('message') ;
     msg.patchValue(msg.value +' '+ event.char)
   }
+
+  send(){
+    console.log(this.messageForm.value.message);
+  }
 }
