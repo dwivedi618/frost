@@ -1,0 +1,17 @@
+<section class="w-100 text-box">
+    <div class="toolbar-1">
+            <form [formGroup]="messageForm" class="w-100" (keydown.enter)="send()">
+                <mat-form-field appearance="outline" class="w-100">
+                    <input matInput  formControlName="message" autocomplete="off">
+                    <mat-icon class="mat-icon-sm text-mylight pt-0" style="cursor: pointer;"
+                    matPrefix (click)="toggled = !toggled" 
+                    [(emojiPickerIf)]="toggled"
+                    [emojiPickerDirection]="'right'" 
+                    (emojiPickerSelect)="handleSelection($event)">
+                    face</mat-icon>                             
+                    <mat-icon class="mat-icon-sm text-mylight pt-0" style="cursor: pointer;"
+                    matSuffix (click)="send()" >send</mat-icon>            
+                </mat-form-field>
+            </form>
+        </div>
+</section>

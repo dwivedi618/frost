@@ -1,3 +1,4 @@
+import { MessageBarComponent } from './../../components/message-bar/message-bar.component';
 import { HeaderComponent } from './../../components/header/header.component';
 
 import { NgModule } from '@angular/core';
@@ -6,6 +7,8 @@ import { MaterialModule } from './material/material.module';
 import { AvatarComponent } from 'src/app/components/avatar/avatar.component';
 import { RouterModule } from '@angular/router';
 import { SearchComponent } from 'src/app/components/search/search.component';
+import  {  NgxEmojiPickerModule  }  from  'ngx-emoji-picker';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -13,21 +16,29 @@ import { SearchComponent } from 'src/app/components/search/search.component';
   declarations: [
     HeaderComponent,
     AvatarComponent,
-    SearchComponent
+    SearchComponent,
+    MessageBarComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
     RouterModule,
-
+    NgxEmojiPickerModule,
+    FormsModule,
+    ReactiveFormsModule,
     
   ],
   exports: [
     CommonModule,
     MaterialModule,
+    RouterModule,
     HeaderComponent,
     AvatarComponent,
-    SearchComponent
+    SearchComponent,
+    MessageBarComponent,
+    NgxEmojiPickerModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }

@@ -11,18 +11,19 @@ import { RouterModule } from '@angular/router';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     PrimaryLayoutComponent,
-    
+  
   ],
   imports: [
     BrowserModule,
+    SharedModule,
     RouterModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

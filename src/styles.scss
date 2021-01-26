@@ -112,6 +112,19 @@ strong{
   flex-shrink: 0;
   object-fit: cover;
 }
+.img-preview{
+  height: calc(100vh - 22rem);
+  border-radius: .2rem;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.thumbnail-md{
+  height: 6rem;
+  width: 6rem;
+  border-radius: 0.2rem;
+  flex-shrink: 0;
+  object-fit: cover;
+}
 small.strong{
   font-weight:900;
   font-size: 0.8rem;
