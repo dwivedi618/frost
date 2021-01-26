@@ -128,9 +128,12 @@ p{
   background-color: rgb(198, 237, 255);
 }
 .chat-bubble{
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 1rem;
+  height: auto;
   border-radius: 0.2rem;
+  overflow-wrap: break-word;
   display: flex;
+  max-width: calc(50vw - 10rem);
   flex-direction: column;
   border: .01px solid rgba(105, 106, 134, 0.041);
 

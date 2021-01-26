@@ -72,8 +72,8 @@ export class ChatBoxComponent implements OnInit, AfterViewChecked {
   toggled: boolean = false;
   handleSelection(event) {
     console.log(event.char);
-    const msg = this.messageForm.get('message');
-    msg.patchValue(msg.value + ' ' + event.char)
+    const msg = this.messageForm.get('message') ;
+    msg.patchValue(( msg.value || '') + ' ' + event.char)
   }
 
   send() {
@@ -87,7 +87,7 @@ export class ChatBoxComponent implements OnInit, AfterViewChecked {
       }
       this.chats.push(chat);
       this.messageForm.reset();
-      this.messageForm.value.message = ''
+      this.messageForm.value.message = ' '
     }
 
   }

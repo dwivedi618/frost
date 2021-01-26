@@ -14,12 +14,14 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import  {  NgxEmojiPickerModule  }  from  'ngx-emoji-picker';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UploadWIthPreviewComponent } from './upload-with-preview/upload-with-preview.component';
 @NgModule({
   declarations: [
     ChatLayoutComponent,
     ChatBoxComponent,
     ChatFileComponent,
-    ChatNotesComponent],
+    ChatNotesComponent,
+    UploadWIthPreviewComponent],
   imports: [
     CommonModule,
     RouterModule,

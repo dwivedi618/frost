@@ -26,9 +26,38 @@
         <mat-toolbar class="toolbar-2">
             <mat-toolbar-row class="toolbar-row-2">
 
-                <button mat-icon-button>
+                <button mat-icon-button [matMenuTriggerFor]="attachmentOptions">
                     <mat-icon class="mat-icon-sm text-mylight pt-0">attachment</mat-icon>
                 </button>
+                <mat-menu #attachmentOptions="matMenu">
+                    <div class="row m-0 py-4">
+                        <div class="col-3 align-self-center text-center">
+                            <button mat-icon-button color="primary">
+                                <mat-icon class="">headset</mat-icon>
+                            </button>
+                            <small >Audio</small>
+                        </div>
+                        <div class="col-3 text-center">
+                            <button mat-icon-button color="warn">
+                                <mat-icon>photo_camera</mat-icon>
+                            </button>
+                            <small>Camera</small>
+                        </div>
+                        <div class="col-3 text-center">
+                            <button mat-icon-button >
+                                <mat-icon>insert_drive_file</mat-icon>
+                            </button>
+                            <small>Document</small>
+
+                        </div>
+                        <div class="col-3 text-center">
+                            <button mat-icon-button>
+                                <mat-icon class="text-info">photo</mat-icon>
+                            </button>
+                            <small >Gallery</small>
+                        </div>
+                    </div>
+                </mat-menu>
                 <button mat-icon-button>
                     <mat-icon class=" text-mylight pt-0">gif</mat-icon>
                 </button>
