@@ -10,7 +10,7 @@ import { ExpandInOutAnimation } from 'src/app/services/animation/dropdown-animat
   animations : [ExpandInOutAnimation]
 })
 export class ChatLayoutComponent implements OnInit {
-
+  expandAnimation = 'collapsed';
   activeChat: any;
   /**
    * recentChats
@@ -64,7 +64,6 @@ export class ChatLayoutComponent implements OnInit {
   ];
 
   activeLink = this.links[0].path;
-  expandAnimation: string;
 
 
   
@@ -92,9 +91,10 @@ export class ChatLayoutComponent implements OnInit {
     this.activeChat = recentChat;
     this.route.navigate(['./chats/chat'],{ queryParams: {id: recentChat.id, name: recentChat.name}})
   }
+
   toggleAnimation(divName: string) {
     if (divName === 'divA') {
-      this.expandAnimation = this.expandAnimation === 'collapsed' ? 'expanded' : 'collapsed';
+      this.expandAnimation = this.expandAnimation === 'expanded' ? 'collapsed' : 'expanded';
       console.log(this.expandAnimation);
     }
   }
