@@ -85,6 +85,9 @@ header{
       display: flex;
       z-index: 1;
   }
-
+#preview{
+  min-height: 0rem;
+  overflow: hidden;
+}
  
 

@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router, Event, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { ExpandInOutAnimation } from 'src/app/services/animation/dropdown-animation';
 
 @Component({
   selector: 'app-chat-layout',
   templateUrl: './chat-layout.component.html',
-  styleUrls: ['./chat-layout.component.scss']
+  styleUrls: ['./chat-layout.component.scss'],
+  animations : [ExpandInOutAnimation]
 })
 export class ChatLayoutComponent implements OnInit {
 
@@ -62,6 +64,7 @@ export class ChatLayoutComponent implements OnInit {
   ];
 
   activeLink = this.links[0].path;
+  expandAnimation: string;
 
 
   
@@ -88,5 +91,11 @@ export class ChatLayoutComponent implements OnInit {
   private openChat(recentChat){
     this.activeChat = recentChat;
     this.route.navigate(['./chats/chat'],{ queryParams: {id: recentChat.id, name: recentChat.name}})
+  }
+  toggleAnimation(divName: string) {
+    if (divName === 'divA') {
+      this.expandAnimation = this.expandAnimation === 'collapsed' ? 'expanded' : 'collapsed';
+      console.log(this.expandAnimation);
+    }
   }
 }

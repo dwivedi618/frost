@@ -134,6 +134,7 @@ small.small{
   font-size: 0.7rem;
 }
 p{
+  padding: 0;
   color: rgb(54, 54, 54);
 }
 
@@ -141,7 +142,7 @@ p{
   background-color: rgb(198, 237, 255);
 }
 .chat-bubble{
-  padding: 0.5rem 1rem;
+  padding: 0.1rem 1rem;
   height: auto;
   border-radius: 0.2rem;
   overflow-wrap: break-word;

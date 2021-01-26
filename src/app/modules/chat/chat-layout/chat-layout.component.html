@@ -37,6 +37,7 @@
             </div>
             <div class="spacer">
             </div>
+            <button mat-button (click)="toggleAnimation('divA')"><small>animation test </small></button>
          
         </div>
 
@@ -85,7 +86,7 @@
                   </nav>
             </mat-toolbar-row>
         </mat-toolbar>
-        <section class="bg-white" style="width : calc( 100vw - 19rem);height : calc( 100vh - 7rem);position: absolute;top: 0;z-index: 3;">
+        <section [@detailExpand]="expandAnimation" id="preview" class="bg-white" style="width : calc( 100vw - 19rem);height : calc( 100vh - 7rem);position: absolute;top: 0;z-index: 3;">
             <app-upload-with-preview></app-upload-with-preview>
         </section>
         <main class="px-3" >
