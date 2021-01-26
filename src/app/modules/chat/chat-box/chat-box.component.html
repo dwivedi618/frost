@@ -1,80 +1,15 @@
-<section class="pb-5" style="overflow:auto;width : calc( 100vw - 22rem);height : calc( 100vh - 15rem);position: relative; ">
+<section #scrollMe class="pb-5" style="overflow:auto;width : calc( 100vw - 22rem);height : calc( 100vh - 15rem);position: relative; ">
  
 
-<div class="row m-0   justify-content-end mb-2">
-    <div class="col-6 align-self-end text-left">
-        <div class="chat-bubble bg-mylight-1 box_shadow_3 " >
-            <small class="small" >Tuesday 20:22</small>
-            <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem laborum aliquid inventore! Expedita architecto voluptatum odio molestiae labore veniam nisi illo voluptas? Asperiores molestiae reiciendis rerum temporibus, consequuntur quidem nostrum.
-            </p>
-        </div>
-    </div>
-</div>
-<div class="row m-0   justify-content-start mb-2">
+<div *ngFor="let chat of chats" class="row m-0  justify-content-start mb-2" [class.justify-content-end]="chat.user_id == 0">
     <div class="col-6 align-self-end text-left ">
-        <div class="chat-bubble bg-mylight-3 ">
-            <small class="small" >Tuesday 20:24</small>
-            <p>hi how are you ballu?</p> 
-        </div>
-    </div>
-</div>
-<div class="row m-0   justify-content-end mb-2">
-    <div class="col-6 align-self-end text-left">
-        <div class="chat-bubble bg-mylight-1 box_shadow_3 " >
-            <small class="small" >Tuesday 20:22</small>
-            <p>
-             odio molestiamoleus, consequuntur quidem nostrum.
-            </p>
-        </div>
-    </div>
-</div>
-<div class="row m-0   justify-content-start mb-2">
-    <div class="col-6 align-self-end text-left ">
-        <div class="chat-bubble bg-mylight-3 ">
-            <small class="small" >Tuesday 20:24</small>
-            <p>ok?</p> 
-        </div>
-    </div>
-</div>
-<div class="row m-0   justify-content-end mb-2">
-    <div class="col-6 align-self-end text-left">
-        <div class="chat-bubble bg-mylight-1 box_shadow_3 " >
-            <small class="small" >Tuesday 20:22</small>
-            <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem laborum aliquid inventore! Expedita architecto voluptatum odio molestiae labore veniam nisi illo voluptas? Asperiores molestiae reiciendis rerum temporibus, consequuntur quidem nostrum.
-            </p>
-        </div>
-    </div>
-</div>
-<div class="row m-0   justify-content-start mb-2">
-    <div class="col-6 align-self-end text-left ">
-        <div class="chat-bubble bg-mylight-3 ">
-            <small class="small" >Tuesday 20:24</small>
-            <p>hi how are you ballu?</p> 
-        </div>
-    </div>
-</div>
-<div class="row m-0   justify-content-end mb-2">
-    <div class="col-6 align-self-end text-left">
-        <div class="chat-bubble bg-mylight-1 box_shadow_3 " >
-            <small class="small" >Tuesday 20:22</small>
-            <p>
-             odio molestiamoleus, consequuntur quidem nostrum.
-            </p>
-        </div>
-    </div>
-</div>
-<div class="row m-0   justify-content-start mb-2">
-    <div class="col-6 align-self-end text-left ">
-        <div class="chat-bubble bg-mylight-3 ">
-            <small class="small" >Tuesday 20:24</small>
-            <p>ok?</p> 
+        <div class="chat-bubble " [class.bg-mylight]="chat.user_id == 0" [class.bg-mylight-3]="chat.user_id != 0">
+            <small class="small" >{{(chat.message_time | date :'shortTime' ) || 'syncing...'}}</small>
+            <p>{{chat.message || ''}}</p> 
         </div>
     </div>
 </div>
 
-      
 
 </section>
 <section style="width : calc( 100vw - 22rem);">
@@ -111,7 +46,7 @@
                 <button mat-icon-button>
                     <mat-icon class="mat-icon-sm text-mylight pt-0">mic</mat-icon>
                 </button>
-                <button mat-icon-button>
+                <button mat-icon-button (click)="send()">
                     <mat-icon class="mat-icon-sm text-mylight pt-0">send</mat-icon>
                 </button>
             </mat-toolbar-row>
