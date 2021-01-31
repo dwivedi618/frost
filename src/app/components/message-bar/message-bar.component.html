@@ -1,17 +1,54 @@
-<section class="w-100 text-box">
-    <div class="toolbar-1">
-            <form [formGroup]="messageForm" class="w-100" (keydown.enter)="send()">
-                <mat-form-field appearance="outline" class="w-100">
-                    <input matInput  formControlName="message" autocomplete="off">
-                    <mat-icon class="mat-icon-sm text-mylight pt-0" style="cursor: pointer;"
-                    matPrefix (click)="toggled = !toggled" 
-                    [(emojiPickerIf)]="toggled"
-                    [emojiPickerDirection]="'right'" 
-                    (emojiPickerSelect)="handleSelection($event)">
-                    face</mat-icon>                             
-                    <mat-icon class="mat-icon-sm text-mylight pt-0" style="cursor: pointer;"
-                    matSuffix (click)="send()" >send</mat-icon>            
-                </mat-form-field>
-            </form>
+
+
+<section class="msg-bar-container py-2 px-3" >
+    <button mat-icon-button>
+        <mat-icon class=" text-mylight "
+        matPrefix (click)="toggled = !toggled" 
+        [(emojiPickerIf)]="toggled"
+        [emojiPickerDirection]="'right'" 
+        (emojiPickerSelect)="handleSelection($event)">
+        insert_emoticon</mat-icon> 
+    </button>
+    <button mat-icon-button [matMenuTriggerFor]="attachmentOptions">
+        <mat-icon class="text-mylight ">attachment</mat-icon>
+    </button>
+    <mat-menu #attachmentOptions="matMenu">
+        <div class="row m-0 py-4">
+            <div class="col-3 align-self-center text-center">
+                <button mat-icon-button color="primary">
+                    <mat-icon class="">headset</mat-icon>
+                </button>
+                <small >Audio</small>
+            </div>
+            <div class="col-3 text-center">
+                <button mat-icon-button color="warn">
+                    <mat-icon>photo_camera</mat-icon>
+                </button>
+                <small>Camera</small>
+            </div>
+            <div class="col-3 text-center">
+                <button mat-icon-button >
+                    <mat-icon>insert_drive_file</mat-icon>
+                </button>
+                <small>Document</small>
+
+            </div>
+            <div class="col-3 text-center">
+                <button mat-icon-button>
+                    <mat-icon class="text-info">photo</mat-icon>
+                </button>
+                <small >Gallery</small>
+            </div>
         </div>
+    </mat-menu>
+    <div class="input-container bg-primary w-100">
+        <div class="input-div w-100" contenteditable="true">
+        </div>
+       
+    </div>
+
+<button mat-icon-button>
+    <mat-icon class="text-mylight" 
+        matSuffix (click)="send()" >send</mat-icon> 
+</button>
 </section>

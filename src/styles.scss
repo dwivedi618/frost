@@ -69,6 +69,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
    // custom scrollbar for dialog-content
+   *{
+    scrollbar-color: rgba(0,0,0,.2) hsla(0,0%,100%,.1);
+    scrollbar-width: thin;
+}
 *::-webkit-scrollbar {
   width: 6px;
   height: 4px;
@@ -144,10 +148,11 @@ p{
 .chat-bubble{
   padding: 0.1rem 1rem;
   height: auto;
-  border-radius: 0.2rem;
+  border-radius: 0.25rem;
   overflow-wrap: break-word;
-  display: flex;
-  max-width: calc(50vw - 10rem);
+  display: inline-flex;
+  width: auto;
+  // max-width: calc(50vw - 10rem);
   flex-direction: column;
   border: .01px solid rgba(105, 106, 134, 0.041);
 
@@ -196,4 +201,19 @@ p{
   }
 .box-shadow-0{
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.164)!important;
+  }
+
+.toolbar-sm ::ng-deep mat-toolbar mat-toolbar-row  {
+
+    max-height: 48px;
+    padding: 0;
+}
+.toolbar-sm ::ng-deep mat-toolbar.mat-toolbar-multiple-rows {
+    max-height: 48px;
+    min-height: 48px;
+
+    padding: 0;
+}
+.toolbar-sm ::ng-deep mat-toolbar{
+    height: 48px;
   }

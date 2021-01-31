@@ -1,0 +1,49 @@
+input#messageInput{
+    // width: 100%;
+    overflow-wrap: break-word;
+    min-width: 50px; 
+    max-width: 200px;
+}
+
+.msg-bar-container{
+position: relative;
+z-index: 2;
+box-sizing: border-box;
+display: flex;
+flex-direction: row;
+align-items: flex-end;
+max-width: 100%;
+min-height: 62px;
+background-color: #f0f0f0;
+}
+
+.input-container{
+    padding: 9px 12px 11px;
+    margin: 5px 10px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius: 21px;
+    // width: inherit;
+}
+
+.input-div{
+position: relative;
+z-index: 1;
+min-height: 20px;
+padding-right: 2px;
+max-height: 100px;
+overflow-x: hidden;
+overflow-y: auto;
+font-size: 15px;
+font-weight: 400;
+color: #4a4a4a;
+word-wrap: break-word;
+overflow-wrap: break-word;
+white-space: pre-wrap;
+outline: none;
+width: 100%;
+line-height: 20px;user-select: text;
+max-width: calc(100vw - 33rem);
+}
+
+

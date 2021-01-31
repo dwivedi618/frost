@@ -43,12 +43,12 @@
 
     </mat-sidenav>
     <mat-sidenav-content>
-        <mat-toolbar class="position:sticky;top:0;">
+        <mat-toolbar class="toolbar-sm" style="position:sticky;top:0;">
             <mat-toolbar-row>
                 <nav mat-tab-nav-bar class="d-flex w-100 pr-2">
                     <div class="d-flex align-items-center" style="min-width:10rem">
-                        <div style="width: 32px;min-width: 32px; height: 32px;border-radius: 1rem;background-color: #d3ac8c;" class="layout pl-2">
-                            <img  class="avatar-md" src="{{activeChat.thumbnail}}" >
+                        <div style="width: 32px;min-width: 32px; height: 32px;border-radius: 1rem;background-color: #d3ac8c;" class="layout ml-2">
+                            <img  class="avatar-sm" src="{{activeChat.thumbnail}}" >
                         </div>
                         <div class="d-flex flex-column py-1 px-2">
                             <strong class="py-1 text-wrap-lg">{{activeChat.name || ''}}</strong>
@@ -89,7 +89,7 @@
         <section [@detailExpand]="expandAnimation" id="preview" class="bg-white" style="width : calc( 100vw - 19rem);height : calc( 100vh - 7rem);position: absolute;top: 0;z-index: 3;">
             <app-upload-with-preview></app-upload-with-preview>
         </section>
-        <main class="px-3" >
+        <main class="" >
             <router-outlet></router-outlet>
         </main>
     </mat-sidenav-content>
