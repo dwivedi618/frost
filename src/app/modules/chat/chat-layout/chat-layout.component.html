@@ -48,10 +48,10 @@
                 <nav mat-tab-nav-bar class="d-flex w-100 pr-2">
                     <div class="d-flex align-items-center" style="min-width:10rem">
                         <div style="width: 32px;min-width: 32px; height: 32px;border-radius: 1rem;background-color: #d3ac8c;" class="layout ml-2">
-                            <img  class="avatar-sm" src="{{activeChat.thumbnail}}" >
+                            <img  class="avatar-sm" src="{{activeChat?.thumbnail}}" >
                         </div>
                         <div class="d-flex flex-column py-1 px-2">
-                            <strong class="py-1 text-wrap-lg">{{activeChat.name || ''}}</strong>
+                            <strong class="py-1 text-wrap-lg">{{activeChat?.name || ''}}</strong>
                         </div>
                         
                     </div>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ChatService } from 'src/app/services/ws/chat.service';
+import { OutgoingMessage } from 'src/app/models/message.model';
+import { ContentType } from 'src/app/models/content-type.enum';
 
 @Component({
   selector: 'app-message-bar',
@@ -10,7 +13,8 @@ export class MessageBarComponent implements OnInit {
 
   messageForm : FormGroup;
   constructor(
-    public fb: FormBuilder
+    public fb: FormBuilder,
+    private chatService: ChatService,
   ) {
     this.messageForm = this.fb.group({
       message: ['']
@@ -27,15 +31,24 @@ export class MessageBarComponent implements OnInit {
   }
 
   send() {
-    console.log(this.messageForm.value.message);
-    const msg = this.messageForm.get('message');
-    if (msg) {
-      const chat = {
-        user_id: 0,
-        message: this.messageForm.value.message,
-        message_time: new Date()
+    let message: OutgoingMessage;
+    const chatBox = document.querySelector('#chat-box');
+    console.log(this.messageForm.value.message, chatBox);
+    // const msg = this.messageForm.get('message');
+    // const content = chatBox.innerHTML;
+    const content = 'messaeg from user';
+
+    if (content) {
+      message = {
+        content: content,
+        contentType: ContentType.TEXT,
+        groupMessage: false,
+        sentTo: 'satyam.dwivedi825@gmail.com'
       }
       // this.chats.push(chat);
+      console.log('hiiiii----------->', content)
+      this.chatService.sendMessage(message);
+
       this.messageForm.reset();
       this.messageForm.value.message = ' '
     }

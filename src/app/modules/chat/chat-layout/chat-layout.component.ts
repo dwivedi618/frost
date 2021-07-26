@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router, Event, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { ExpandInOutAnimation } from 'src/app/services/animation/dropdown-animation';
+import { RestService } from 'src/app/services/rest/rest.service'
 
 @Component({
   selector: 'app-chat-layout',
@@ -10,48 +11,38 @@ import { ExpandInOutAnimation } from 'src/app/services/animation/dropdown-animat
   animations : [ExpandInOutAnimation]
 })
 export class ChatLayoutComponent implements OnInit {
+
+
   expandAnimation = 'collapsed';
   activeChat: any;
-  /**
-   * recentChats
-   */
-  recentChats = [
+  recentChats: any;
 
-    {
-      path: 'chat',
-      thumbnail: '../../../../assets/user_profiles/thor.jpeg',
-      name: 'Thor',
-      group : false,
-      group_name : null,
-      id : 1,
-      last_msg: 'call me',
-      last_active: '08/01'
+  constructor (
+    public route: Router,
+    public activatedRoute: ActivatedRoute,
+    private rest: RestService,
+  ) {
+    route.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
 
-    },
-    {
-      path: 'chat',
-      thumbnail: '../../../../assets/user_profiles/ironman.jpeg',
-      name: 'Ironman',
-      group : false,
-      group_name : null,
-      id : 2,
-      last_msg: 'get ready! bringing party to you',
-      last_active: '08/01'
+      const activeLinkWithParam = (event.url.split('/').pop())      
+      console.log("activeLinkWithParam", activeLinkWithParam);
+      this.activeLink = activeLinkWithParam.split('?')[0]
+      console.log("activeLink", this.activeLink);
 
-    },
-    {
-      path: 'chat',
-      thumbnail: '../../../../assets/user_profiles/profile1.jpeg',
-      name: 'Loffy Dagger',
-      group : false,
-      group_name : null,
-      id : 3,
-      last_msg: 'what is party?',
-      last_active: '08/01'
+    });
 
-    },
+  }
 
-  ]
+  ngOnInit() {
+    this.rest.get(`/chat`)
+    .subscribe(res => {
+      this.recentChats = res.data;
+      this.openChat(this.recentChats[0]);
+    })
+  }
+
 
   /**
    * ChatOptions
@@ -65,27 +56,6 @@ export class ChatLayoutComponent implements OnInit {
 
   activeLink = this.links[0].path;
 
-
-  
-  constructor(
-    public route: Router,
-    public activatedRoute: ActivatedRoute,
-  ) {
-    route.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe((event: NavigationEnd) => {
-
-      const activeLinkWithParam = (event.url.split('/').pop())      
-      console.log("activeLinkWithParam", activeLinkWithParam);
-      this.activeLink = activeLinkWithParam.split('?')[0]
-      console.log("activeLink", this.activeLink);
-
-    });
-  }
-
-  ngOnInit() {
-    this.openChat(this.recentChats[0])
-  }
 
   private openChat(recentChat){
     this.activeChat = recentChat;
