@@ -2,6 +2,8 @@ import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@ang
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { RestService } from 'src/app/services/rest/rest.service'
+import { ChatService } from 'src/app/services/ws/chat.service';
+import { Socket } from 'ngx-socket-io';
 
 @Component({
   selector: 'app-chat-box',
@@ -18,7 +20,8 @@ export class ChatBoxComponent implements OnInit, AfterViewChecked {
     public fb: FormBuilder,
     private rest: RestService,
     public activatedRoute: ActivatedRoute,
-
+    private chatService: ChatService,
+    private socket: Socket,
   ) {
     this.messageForm = this.fb.group({
       message: ['']
@@ -30,10 +33,21 @@ export class ChatBoxComponent implements OnInit, AfterViewChecked {
       this.chats = res.data;
     })
     });
+
+
+    /**
+     * Subscribe the newMessage Subject to get
+     * and update the chat array with new message
+     */
+    this.chatService.newMessage.subscribe((chat) => {
+      this.chats.push(chat);
+    });
   }
+
   ngAfterViewChecked() {
     this.scrollToBottom();
   }
+  
   ngOnInit(): void {
     
     this.scrollToBottom();
