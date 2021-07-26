@@ -51,7 +51,7 @@ export class ChatBoxComponent implements OnInit, AfterViewChecked {
   }
 
   send() {
-    console.log(this.messageForm.value.message);
+    console.log('------------------------------------------->>>>>>>>>>>>>>>>>>',this.messageForm.value.message);
     const msg = this.messageForm.get('message');
     if (msg) {
       const chat = {
@@ -65,4 +65,9 @@ export class ChatBoxComponent implements OnInit, AfterViewChecked {
     }
 
   }
+
+  addChat(chat: any){
+    this.chats.push(chat);
+  }
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ChatService } from 'src/app/services/ws/chat.service';
 import { OutgoingMessage } from 'src/app/models/message.model';
@@ -12,6 +12,8 @@ import { ContentType } from 'src/app/models/content-type.enum';
 export class MessageBarComponent implements OnInit {
 
   messageForm : FormGroup;
+  @Output() sendChatEvent = new EventEmitter<any>();
+
   constructor(
     public fb: FormBuilder,
     private chatService: ChatService,
@@ -31,26 +33,27 @@ export class MessageBarComponent implements OnInit {
   }
 
   send() {
-    let message: OutgoingMessage;
-    const chatBox = document.querySelector('#chat-box');
-    console.log(this.messageForm.value.message, chatBox);
+    // let message: OutgoingMessage;
+    let message: any;
+
+    const chatBox = document.getElementsByClassName("myText");
     // const msg = this.messageForm.get('message');
-    // const content = chatBox.innerHTML;
-    const content = 'messaeg from user';
+    const content = chatBox[1]?.nodeValue;
+    console.log('-------------1:', content, '-----', chatBox );
+    // const content = 'messaeg from user';
 
     if (content) {
       message = {
-        content: content,
-        contentType: ContentType.TEXT,
-        groupMessage: false,
-        sentTo: 'satyam.dwivedi825@gmail.com'
+        user_id: 0,
+        message: content,
+        message_time: new Date()
       }
       // this.chats.push(chat);
-      console.log('hiiiii----------->', content)
+      this.sendChatEvent.emit(message);
+      chatBox[1].nodeValue = ' ';
       this.chatService.sendMessage(message);
 
-      this.messageForm.reset();
-      this.messageForm.value.message = ' '
+      // this.messageForm.reset();
     }
 
   }
