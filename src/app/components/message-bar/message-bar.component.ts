@@ -12,7 +12,6 @@ import { ContentType } from 'src/app/models/content-type.enum';
 export class MessageBarComponent implements OnInit {
 
   messageForm : FormGroup;
-  @Output() sendChatEvent = new EventEmitter<any>();
 
   constructor(
     public fb: FormBuilder,
@@ -37,23 +36,19 @@ export class MessageBarComponent implements OnInit {
     let message: any;
 
     const chatBox = document.getElementsByClassName("myText");
-    // const msg = this.messageForm.get('message');
-    const content = chatBox[1]?.nodeValue;
+    let content = chatBox[1]?.nodeValue;
+    chatBox[1].nodeValue = ' ';
     console.log('-------------1:', content, '-----', chatBox );
-    // const content = 'messaeg from user';
-
+    content = 'hello';
     if (content) {
       message = {
         user_id: 0,
         message: content,
         message_time: new Date()
       }
-      // this.chats.push(chat);
-      this.sendChatEvent.emit(message);
-      chatBox[1].nodeValue = ' ';
+      this.chatService.newMessage.next(message)
       this.chatService.sendMessage(message);
 
-      // this.messageForm.reset();
     }
 
   }

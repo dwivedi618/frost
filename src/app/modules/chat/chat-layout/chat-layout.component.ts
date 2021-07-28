@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router, Event, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { ExpandInOutAnimation } from 'src/app/services/animation/dropdown-animation';
-import { RestService } from 'src/app/services/rest/rest.service'
+import { ChatService } from 'src/app/services/ws/chat.service'
 
 @Component({
   selector: 'app-chat-layout',
@@ -20,7 +20,7 @@ export class ChatLayoutComponent implements OnInit {
   constructor (
     public route: Router,
     public activatedRoute: ActivatedRoute,
-    private rest: RestService,
+    private chatService: ChatService,
   ) {
     route.events.pipe(
       filter(event => event instanceof NavigationEnd)
@@ -36,7 +36,7 @@ export class ChatLayoutComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.rest.get(`/chat`)
+    this.chatService.getRecentChats()
     .subscribe(res => {
       this.recentChats = res.data;
       this.openChat(this.recentChats[0]);
