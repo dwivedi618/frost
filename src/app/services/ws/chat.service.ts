@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http'
 import { Socket } from 'ngx-socket-io';
 import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment'
-import { OutgoingMessage } from '../../models/message.model'
+import { OutgoingMessage, IncommingMessage } from '../../models/message.model'
 
 @Injectable({
     providedIn: 'root'
@@ -32,7 +32,7 @@ export class ChatService {
 
     getIndividualChats(id: string){
         const url = `${environment.apiUrl}/${this.chatRoute}/:${id}`;
-        return this.http.get<any>(url, { params: {id: id}});
+        return this.http.get<IncommingMessage []>(url, { params: {id: id}});
     }
 
 }

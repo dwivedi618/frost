@@ -2,6 +2,7 @@ import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@ang
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ChatService } from 'src/app/services/ws/chat.service';
+import { IncommingMessage } from 'src/app/models/message.model';
 
 @Component({
   selector: 'app-chat-box',
@@ -11,8 +12,9 @@ import { ChatService } from 'src/app/services/ws/chat.service';
 export class ChatBoxComponent implements OnInit, AfterViewChecked {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
   messageForm: FormGroup;
-  chats: any;
-  userId: string;
+  chats: IncommingMessage [];
+  userInChat: string;
+  currentUser: string = '1';
 
   constructor(
     public fb: FormBuilder,
@@ -24,10 +26,10 @@ export class ChatBoxComponent implements OnInit, AfterViewChecked {
     });
 
     this.activatedRoute.queryParams.subscribe(params => {
-      this.userId = params['id'];
-      this.chatService.getIndividualChats(this.userId)
+      this.userInChat = params['id'];
+      this.chatService.getIndividualChats(this.userInChat)
         .subscribe(res => {
-          this.chats = res.data;
+          this.chats = res;
         })
     });
 

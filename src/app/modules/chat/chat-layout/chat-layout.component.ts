@@ -38,7 +38,7 @@ export class ChatLayoutComponent implements OnInit {
   ngOnInit() {
     this.chatService.getRecentChats()
     .subscribe(res => {
-      this.recentChats = res.data;
+      this.recentChats = res;
       this.openChat(this.recentChats[0]);
     })
   }

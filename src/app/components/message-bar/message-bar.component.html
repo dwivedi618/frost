@@ -42,9 +42,11 @@
         </div>
     </mat-menu>
     <div class="input-container bg-primary w-100">
-        <!-- <div id='chat-box' class="input-div w-100" contenteditable>Hello
+        <!-- <div #textBox class="input-div w-100" contenteditable="true">
         </div> -->
-        <input type="text" class="input-div w-100 myText" placeholder='Type a message' >
+        <div class="input-div w-100" contenteditable="true" #textBox>
+        </div>
+        <!-- <input type="text" [(ngModel)] = "content" class="input-div w-100 myText" placeholder='Type a message' > -->
        
     </div>
 

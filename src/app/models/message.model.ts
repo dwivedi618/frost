@@ -3,10 +3,10 @@ import { ContentType } from 'src/app/models/content-type.enum'
 export class IncommingMessage {
     content: string;
     contentType: ContentType;
-    groupMessage: boolean;
+    group: boolean;
     sentTo: string;
     sentBy: string;
-    sentAt?: string;
+    sentAt?: Date;
     recievedAt?: Date;
     seenAt?: Date;
     editedAt?: Date;
@@ -16,8 +16,8 @@ export class IncommingMessage {
 export class OutgoingMessage {
     content: string;
     contentType: ContentType;
-    groupMessage: boolean;
+    group: boolean;
     sentTo: string;
-    sentAt?: string;
+    sentAt?: Date;
     editedAt?: Date;
 }

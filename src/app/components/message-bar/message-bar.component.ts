@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ChatService } from 'src/app/services/ws/chat.service';
 import { OutgoingMessage } from 'src/app/models/message.model';
@@ -11,15 +11,12 @@ import { ContentType } from 'src/app/models/content-type.enum';
 })
 export class MessageBarComponent implements OnInit {
 
-  messageForm : FormGroup;
+  @ViewChild('textBox') textBox: ElementRef;
 
   constructor(
     public fb: FormBuilder,
     private chatService: ChatService,
   ) {
-    this.messageForm = this.fb.group({
-      message: ['']
-    })
   }
 
   ngOnInit(): void {
@@ -27,28 +24,23 @@ export class MessageBarComponent implements OnInit {
   toggled: boolean = false;
   handleSelection(event) {
     console.log(event.char);
-    const msg = this.messageForm.get('message') ;
-    msg.patchValue(( msg.value || '') + ' ' + event.char)
   }
 
   send() {
-    // let message: OutgoingMessage;
-    let message: any;
-
-    const chatBox = document.getElementsByClassName("myText");
-    let content = chatBox[1]?.nodeValue;
-    chatBox[1].nodeValue = ' ';
-    console.log('-------------1:', content, '-----', chatBox );
-    content = 'hello';
+    let message: OutgoingMessage;
+    let content = this.textBox.nativeElement.innerHTML;
     if (content) {
       message = {
-        user_id: 0,
-        message: content,
-        message_time: new Date()
+        content: content,
+        contentType: ContentType.TEXT,
+        group: false,
+        sentTo: '1',
+        sentAt: new Date(),
+        editedAt: new Date()
       }
       this.chatService.newMessage.next(message)
       this.chatService.sendMessage(message);
-
+      this.textBox.nativeElement.innerHTML = '';
     }
 
   }
