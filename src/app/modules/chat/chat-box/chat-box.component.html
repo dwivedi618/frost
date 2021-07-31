@@ -1,25 +1,23 @@
-<section  class="incomming-chat" 
-style="
+<section class="incomming-chat" style="
 
 background-color: rgb(219, 219, 219);">
-<div #scrollMe class="inner-incomming-chat">
-    <div *ngFor="let chat of chats" class="row justify-content-start incomming-chat-row " [class.justify-content-end]="chat.user_id == 0">
-        <div class="col-6 align-self-end  " 
-        [class.text-right]="chat.user_id == 0"
-        [class.text-left]="chat.user_id != 0">
-            <div class="chat-bubble bg-white mat-elevation-z1 mb-1" 
-            [class.bg-mylight]="chat.user_id == 0" 
-            [class.bg-mylight-3]="chat.user_id != 0">
-                <small class="small" >{{(chat.message_time | date :'shortTime' ) || 'syncing...'}}</small>
-                <p>{{chat.message || ''}}</p> 
+    <div #scrollMe class="inner-incomming-chat">
+        <div *ngFor="let chat of chats" class="row justify-content-start incomming-chat-row "
+            [class.justify-content-end]="chat.user_id == 0">
+            <div class="col-6 align-self-end  " [class.text-right]="chat.user_id == 0"
+                [class.text-left]="chat.user_id != 0">
+                <div class="chat-bubble bg-white mat-elevation-z1 " [class.bg-mylight]="chat.user_id == 0"
+                    [class.bg-mylight-3]="chat.user_id != 0">
+                    <small class="small">{{(chat.message_time | date :'shortTime' ) || 'syncing...'}}</small>
+                    <p>{{chat.message || ''}}</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
- <!-- <div class="spacer"></div> -->
-<footer class="message-bar-footer bg-danger" >
-    <app-message-bar></app-message-bar>
-</footer>
+    <!-- <div class="spacer"></div> -->
+    <footer class="message-bar-footer ">
+        <app-message-bar></app-message-bar>
+    </footer>
 </section>
 <!-- <section class="bg-white" style="width : calc( 100vw - 22rem);height : calc( 100vh - 7rem);position: absolute;top: 3.55rem; ">
     <app-upload-with-preview></app-upload-with-preview>

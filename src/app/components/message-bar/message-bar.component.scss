@@ -1,8 +1,7 @@
-input#messageInput{
-    // width: 100%;
-    overflow-wrap: break-word;
-    min-width: 50px; 
-    max-width: 200px;
+textarea{
+    outline: none;
+    border: none;
+    // height: 62px;
 }
 
 .msg-bar-container{
@@ -42,7 +41,9 @@ overflow-wrap: break-word;
 white-space: pre-wrap;
 outline: none;
 width: 100%;
-line-height: 20px;user-select: text;
+line-height: 20px;
+user-select: text;
+white-space: pre-wrap;
 max-width: calc(100vw - 33rem);
 }
 

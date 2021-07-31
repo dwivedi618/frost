@@ -1,13 +1,8 @@
-
-
-<section class="msg-bar-container py-2 px-3" >
+<section class="msg-bar-container py-2 px-3">
     <button mat-icon-button>
-        <mat-icon class=" text-mylight "
-        matPrefix (click)="toggled = !toggled" 
-        [(emojiPickerIf)]="toggled"
-        [emojiPickerDirection]="'right'" 
-        (emojiPickerSelect)="handleSelection($event)">
-        insert_emoticon</mat-icon> 
+        <mat-icon class=" text-mylight " matPrefix (click)="toggled = !toggled" [(emojiPickerIf)]="toggled"
+            [emojiPickerDirection]="'right' || 'left' ||'top'" (emojiPickerSelect)="emojiSelection($event)">
+            insert_emoticon</mat-icon>
     </button>
     <button mat-icon-button [matMenuTriggerFor]="attachmentOptions">
         <mat-icon class="text-mylight ">attachment</mat-icon>
@@ -18,7 +13,7 @@
                 <button mat-icon-button color="primary">
                     <mat-icon class="">headset</mat-icon>
                 </button>
-                <small >Audio</small>
+                <small>Audio</small>
             </div>
             <div class="col-3 text-center">
                 <button mat-icon-button color="warn">
@@ -27,7 +22,7 @@
                 <small>Camera</small>
             </div>
             <div class="col-3 text-center">
-                <button mat-icon-button >
+                <button mat-icon-button>
                     <mat-icon>insert_drive_file</mat-icon>
                 </button>
                 <small>Document</small>
@@ -37,18 +32,20 @@
                 <button mat-icon-button>
                     <mat-icon class="text-info">photo</mat-icon>
                 </button>
-                <small >Gallery</small>
+                <small>Gallery</small>
             </div>
         </div>
     </mat-menu>
-    <div class="input-container bg-primary w-100">
-        <div class="input-div w-100" contenteditable="true">
+    <div class="input-container w-100" >
+        <div id="message-editor" class="input-div w-100" 
+        [textContent]="editorText"
+        contenteditable="true" 
+        (input)="handleEditorEvents($event.target.textContent)">        
         </div>
-       
+
     </div>
 
-<button mat-icon-button>
-    <mat-icon class="text-mylight" 
-        matSuffix (click)="send()" >send</mat-icon> 
-</button>
+    <button mat-icon-button>
+        <mat-icon class="text-mylight" matSuffix (click)="send()">send</mat-icon>
+    </button>
 </section>

@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { SearchComponent } from 'src/app/components/search/search.component';
 import  {  NgxEmojiPickerModule  }  from  'ngx-emoji-picker';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ContentEditableDirective } from 'src/app/customDirectives/content-editable.directive';
 
 
 
@@ -17,7 +18,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     AvatarComponent,
     SearchComponent,
-    MessageBarComponent
+    MessageBarComponent,
+    ContentEditableDirective,
+
   ],
   imports: [
     CommonModule,
@@ -38,7 +41,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MessageBarComponent,
     NgxEmojiPickerModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ContentEditableDirective
   ]
 })
 export class SharedModule { }
