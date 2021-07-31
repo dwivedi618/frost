@@ -1,5 +1,8 @@
 import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { ChatService } from 'src/app/services/ws/chat.service';
+import { IncommingMessage } from 'src/app/models/message.model';
 
 @Component({
   selector: 'app-chat-box',
@@ -9,59 +12,43 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class ChatBoxComponent implements OnInit, AfterViewChecked {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
   messageForm: FormGroup;
-  chats = [
-    {
-      user_id: 1,
-      message: 'hi',
-      message_time: new Date()
-    },
-    {
-      user_id: 0,
-      message: 'helloo',
-      message_time: new Date()
-    },
-    {
-      user_id: 0,
-      message: 'how are you?',
-      message_time: new Date()
-    },
-    {
-      user_id: 0,
-      message: 'where have you been?',
-      message_time: new Date()
-    },
-    {
-      user_id: 1,
-      message: 'I have been busy.',
-      message_time: new Date()
-    },
-    {
-      user_id: 1,
-      message: 'umm.. hey! I hate to ask this but do you know where was marven last week?',
-      message_time: new Date()
-    },
-    {
-      user_id: 0,
-      message: 'what is this about?',
-      message_time: new Date()
-    },
-    {
-      user_id: 0,
-      message: 'is everything okay?',
-      message_time: new Date()
-    },
-  ]
+  chats: IncommingMessage [];
+  userInChat: string;
+  currentUser: string = '1';
+
   constructor(
-    public fb: FormBuilder
+    public fb: FormBuilder,
+    public activatedRoute: ActivatedRoute,
+    private chatService: ChatService,
   ) {
     this.messageForm = this.fb.group({
       message: ['']
-    })
+    });
+
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.userInChat = params['id'];
+      this.chatService.getIndividualChats(this.userInChat)
+        .subscribe(res => {
+          this.chats = res;
+        })
+    });
+
+
+    /**
+     * Subscribe the newMessage Subject to get
+     * and update the chat array with new message
+     */
+    this.chatService.newMessage.subscribe((chat) => {
+      this.chats.push(chat);
+    });
   }
+
   ngAfterViewChecked() {
     this.scrollToBottom();
   }
+
   ngOnInit(): void {
+    
     this.scrollToBottom();
   }
   scrollToBottom(): void {
@@ -76,19 +63,4 @@ export class ChatBoxComponent implements OnInit, AfterViewChecked {
     msg.patchValue(( msg.value || '') + ' ' + event.char)
   }
 
-  send() {
-    console.log(this.messageForm.value.message);
-    const msg = this.messageForm.get('message');
-    if (msg) {
-      const chat = {
-        user_id: 0,
-        message: this.messageForm.value.message,
-        message_time: new Date()
-      }
-      this.chats.push(chat);
-      this.messageForm.reset();
-      this.messageForm.value.message = ' '
-    }
-
-  }
 }

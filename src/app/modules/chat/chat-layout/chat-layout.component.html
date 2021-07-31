@@ -24,14 +24,14 @@
                 <button *ngFor="let link  of recentChats"  mat-button (click)="openChat(link)" routerLink="{{link.path}}" routerLinkActive="active" routerLinkActive #rla="routerLinkActive"  class="w-100 text-left" [class.active]="link.id == activeChat.id">
                     <div class="d-flex my-1 align-items-center">
                         <div style="width: 32px;min-width: 32px; height: 32px;border-radius: 1rem;background-color: #d3ac8c;" class="layout">
-                            <img  class="avatar-sm" src="{{link.thumbnail}}" >
+                            <img  class="avatar-md" src="{{link.image}}" >
                         </div>
                         <div class="d-flex flex-column py-1 pl-1">
                             <small style="line-height: 10px;" class="text-link py-1 text-wrap-md">{{link.name || 'syncing...'}}</small>
-                            <small style="line-height: 10px; font-size: 10px; " class=" text-mylight py-1 text-wrap-md" >{{link.last_msg || ''}}</small>
+                            <small style="line-height: 10px; font-size: 10px; " class=" text-mylight py-1 text-wrap-md" >{{link.lastMessage || ''}}</small>
                         </div>
                         <div class="spacer"></div>
-                        <small class="text-mylight">{{link.last_active || ''}}</small>
+                        <small class="text-mylight">{{link.sentAt || ''}}</small>
                     </div>
                 </button>
             </div>
@@ -48,10 +48,10 @@
                 <nav mat-tab-nav-bar class="d-flex w-100 pr-2">
                     <div class="d-flex align-items-center" style="min-width:10rem">
                         <div style="width: 32px;min-width: 32px; height: 32px;border-radius: 1rem;background-color: #d3ac8c;" class="layout ml-2">
-                            <img  class="avatar-sm" src="{{activeChat.thumbnail}}" >
+                            <img  class="avatar-sm" src="{{activeChat?.image}}" >
                         </div>
                         <div class="d-flex flex-column py-1 px-2">
-                            <strong class="py-1 text-wrap-lg">{{activeChat.name || ''}}</strong>
+                            <strong class="py-1 text-wrap-lg">{{activeChat?.name || ''}}</strong>
                         </div>
                         
                     </div>
