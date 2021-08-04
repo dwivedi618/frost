@@ -14,6 +14,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input'; 
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatSortModule,
     MatTableModule,
     MatPaginatorModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   
   ],
   exports: [
@@ -51,7 +53,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatSortModule,
     MatTableModule,
     MatPaginatorModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ]
 })
 export class MaterialModule { }

@@ -1,0 +1,16 @@
+.bg-gradient-bottom{
+    background: linear-gradient(to bottom,#42424286,rgba(0, 0, 0, 0));
+}
+
+#wc-chat{
+    min-width: 20rem;
+    height: 100vh;
+}
+
+::ng-deep.mat-dialog-container {
+    resize: vertical; 
+    overflow: auto;
+    background: #fff;
+    padding: 0;
+    margin: 0;
+  }

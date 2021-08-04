@@ -1,7 +1,10 @@
+import { ConnectingScreenComponent } from 'src/app/modules/wc/connecting-screen/connecting-screen.component';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Route, Router, Event, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { ExpandInOutAnimation } from 'src/app/services/animation/dropdown-animation';
+import { WcdialogService } from 'src/app/services/wc/wcdialog.service';
 import { ChatService } from 'src/app/services/ws/chat.service'
 
 @Component({
@@ -19,8 +22,10 @@ export class ChatLayoutComponent implements OnInit {
 
   constructor (
     public route: Router,
+    public dialog : MatDialog,
     public activatedRoute: ActivatedRoute,
     private chatService: ChatService,
+    public wcDailog : WcdialogService
   ) {
     route.events.pipe(
       filter(event => event instanceof NavigationEnd)
@@ -68,4 +73,10 @@ export class ChatLayoutComponent implements OnInit {
       console.log(this.expandAnimation);
     }
   }
+
+  connectCall(){
+    this.wcDailog.openWcDialog()
+  }
+
+  
 }

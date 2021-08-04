@@ -12,6 +12,8 @@ import { RouterModule } from '@angular/router';
 
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { environment } from 'src/environments/environment';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { WcdialogService } from './services/wc/wcdialog.service';
 
 const config: SocketIoConfig = {url: environment.wsUrl, options: { transports: ['websocket'] }};
 
@@ -32,7 +34,8 @@ const config: SocketIoConfig = {url: environment.wsUrl, options: { transports: [
     HttpClientModule,
     SocketIoModule.forRoot(config),
   ],
-  providers: [],
+ 
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

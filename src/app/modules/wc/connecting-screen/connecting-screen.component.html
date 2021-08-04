@@ -1,0 +1,65 @@
+<mat-sidenav-container autosize style="width: 100%;height: 100%;background: #424242!important" class="">
+    <mat-toolbar class="bg-gradient-bottom">
+        <small class="strong text-light pr-3 pl-2">Call with ...</small>
+        <div class="spacer"></div>
+
+        <button mat-icon-button >
+            <mat-icon class="mat-icon-sm pt-0 material-icons-outlined text-mylight">minimize</mat-icon>
+        </button>
+        <button mat-icon-button >
+            <mat-icon class="mat-icon-sm pt-0 material-icons-outlined text-mylight">fullscreen</mat-icon>
+        </button>
+        <button mat-icon-button cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+            <mat-icon class="mat-icon-sm pt-0 material-icons-outlined text-mylight">drag_indicator</mat-icon>
+        </button>
+
+    </mat-toolbar>
+
+    <mat-sidenav id="wc-chat" #sidenav position="end" mode="side">
+        <mat-toolbar>
+            <div class="spacer"></div>
+            <button mat-icon-button>
+                <mat-icon class="mat-icon-sm pt-0 material-icons-outlined text-mylight">call</mat-icon>
+
+            </button>
+            <button mat-icon-button>
+                <mat-icon class="mat-icon-sm pt-0 material-icons-outlined text-mylight">chat</mat-icon>
+
+            </button>
+        </mat-toolbar>
+    </mat-sidenav>
+    <mat-dialog-content style="width: inherit;height: inherit;position: relative;">
+        <main class="layout" style="min-width: 100%;min-height: 100%;">
+            <video width="320" height="240" loop autoplay>
+                <source src="../../../../assets/test-video/simplescreenrecorder-2021-02-04_14.07.09.mp4"
+                    type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <div class="d-flex justify-content-between bg-dark-2 p-0 mat-elevation-z4"
+                style="width: 20rem;position:absolute;bottom: 3rem;">
+                <button mat-icon-button (click)="toggleCam()">
+                    <mat-icon class="mat-icon-sm pt-0 material-icons-outlined text-mylight"
+                        [class.text-white]="toggleCam() == true" [class.text-mywhite]="toggleCam() == false">
+                        {{activeCallSettings.isCamEnable ? 'videocam' : 'videocam_off'}}</mat-icon>
+                </button>
+                <button mat-icon-button (click)="toggleMic()">
+                    <mat-icon class="mat-icon-sm pt-0 material-icons-outlined text-mylight"
+                        [class.text-white]="toggleMic() == true" [class.text-mywhite]="toggleMic() == false">
+                        {{activeCallSettings.isMicEnable ? 'mic' : 'mic_off'}}</mat-icon>
+                </button>
+
+                <button mat-icon-button>
+                    <mat-icon class="mat-icon-sm pt-0 material-icons-outlined text-mylight">screen_share</mat-icon>
+                </button>
+                <button mat-icon-button (click)="toggleWcChat();sidenav.toggle()">
+                    <mat-icon class="mat-icon-sm pt-0 material-icons-outlined text-mylight">chat</mat-icon>
+                </button>
+                <div class="spacer"></div>
+                <button mat-button style="background:  rgb(228, 43, 10)" [mat-dialog-close]="true">
+                    <mat-icon class="mat-icon-sm pt-1 material-icons-outlined text-white">call_end</mat-icon>
+                </button>
+            </div>
+        </main>
+    </mat-dialog-content>
+</mat-sidenav-container>
