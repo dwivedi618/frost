@@ -1,19 +1,5 @@
-<mat-sidenav-container autosize style="width: 100%;height: 100%;background: #424242!important" class="">
-    <mat-toolbar class="bg-gradient-bottom">
-        <small class="strong text-light pr-3 pl-2">Call with ...</small>
-        <div class="spacer"></div>
-
-        <button mat-icon-button >
-            <mat-icon class="mat-icon-sm pt-0 material-icons-outlined text-mylight">minimize</mat-icon>
-        </button>
-        <button mat-icon-button >
-            <mat-icon class="mat-icon-sm pt-0 material-icons-outlined text-mylight">fullscreen</mat-icon>
-        </button>
-        <button mat-icon-button cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
-            <mat-icon class="mat-icon-sm pt-0 material-icons-outlined text-mylight">drag_indicator</mat-icon>
-        </button>
-
-    </mat-toolbar>
+<mat-sidenav-container autosize style="width: 100%;height: 100%;background: #424242!important;position: relative;" class="">
+    
 
     <mat-sidenav id="wc-chat" #sidenav position="end" mode="side">
         <mat-toolbar>
@@ -28,15 +14,38 @@
             </button>
         </mat-toolbar>
     </mat-sidenav>
-    <mat-dialog-content style="width: inherit;height: inherit;position: relative;">
-        <main class="layout" style="min-width: 100%;min-height: 100%;">
-            <video width="320" height="240" loop autoplay>
-                <source src="../../../../assets/test-video/simplescreenrecorder-2021-02-04_14.07.09.mp4"
-                    type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+    <mat-sidenav-content >
+        <mat-toolbar class="bg-gradient-bottom" style="position: absolute;top: 0;z-index: 1000;">
+            <small class="strong text-light pr-3 pl-2">Call with ...</small>
+            <div class="spacer"></div>
+    
+            
+            <button mat-icon-button>
+                <mat-icon class="mat-icon-sm pt-0 material-icons-outlined text-mylight">fullscreen</mat-icon>
+            </button>
+            <button mat-icon-button cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+                <mat-icon class="mat-icon-sm pt-0 material-icons-outlined text-mylight">drag_indicator</mat-icon>
+            </button>
+    
+        </mat-toolbar>
+        <mat-grid-list cols="2" rowHeight="2:1">
+            <mat-grid-tile>connecting...</mat-grid-tile>
+            <mat-grid-tile>
+                <video class="w-100" loop autoplay>
+                    <source src="../../../../assets/test-video/simplescreenrecorder-2021-02-04_14.07.09.mp4"
+                        type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </mat-grid-tile>
+            <mat-grid-tile>connecting...</mat-grid-tile>
+            <mat-grid-tile>Shivam Dwivedi</mat-grid-tile>
 
-            <div class="d-flex justify-content-between bg-dark-2 p-0 mat-elevation-z4"
+
+           
+
+        </mat-grid-list>
+        <div class="layout ">
+            <div class="d-flex justify-content-between rounded-lg bg-dark-2 p-0 mat-elevation-z4"
                 style="width: 20rem;position:absolute;bottom: 3rem;">
                 <button mat-icon-button (click)="toggleCam()">
                     <mat-icon class="mat-icon-sm pt-0 material-icons-outlined text-mylight"
@@ -60,6 +69,6 @@
                     <mat-icon class="mat-icon-sm pt-1 material-icons-outlined text-white">call_end</mat-icon>
                 </button>
             </div>
-        </main>
-    </mat-dialog-content>
+        </div>
+    </mat-sidenav-content>
 </mat-sidenav-container>

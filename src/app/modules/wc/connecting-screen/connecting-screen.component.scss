@@ -8,9 +8,15 @@
 }
 
 ::ng-deep.mat-dialog-container {
-    resize: vertical; 
-    overflow: auto;
-    background: #fff;
+    // resize: vertical; 
+    // overflow: auto;
+    // background: #fff;
     padding: 0;
     margin: 0;
   }
+  mat-grid-tile {
+    //   width: 100%;
+    //   height: 100%;
+    background: rgba(173, 216, 230, 0.295);
+  }
+  

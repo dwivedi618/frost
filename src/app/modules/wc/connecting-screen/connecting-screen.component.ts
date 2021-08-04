@@ -7,7 +7,6 @@ export interface callSettings {
   isChatEnable : boolean;
   isShareScreenEnable: boolean;
   isFullScreen: boolean;
- 
 }
 
 @Component({

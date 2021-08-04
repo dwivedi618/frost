@@ -15,6 +15,7 @@ import { UploadWIthPreviewComponent } from './upload-with-preview/upload-with-pr
 import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { WcdialogService } from 'src/app/services/wc/wcdialog.service';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import {MatGridListModule} from '@angular/material/grid-list';
 @NgModule({
   declarations: [
     ChatLayoutComponent,
@@ -30,7 +31,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     RouterModule,
     ChatRoutingModule,
     MatDialogModule,
-    DragDropModule
+    DragDropModule,
+    MatGridListModule
+    
 
 
   ],
