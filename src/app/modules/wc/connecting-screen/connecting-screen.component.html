@@ -29,16 +29,25 @@
     
         </mat-toolbar>
         <mat-grid-list cols="2" rowHeight="2:1">
-            <mat-grid-tile>connecting...</mat-grid-tile>
             <mat-grid-tile>
-                <video class="w-100" loop autoplay>
+                <video class="w-100"  loop autoplay #one>
                     <source src="../../../../assets/test-video/simplescreenrecorder-2021-02-04_14.07.09.mp4"
                         type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </mat-grid-tile>
-            <mat-grid-tile>connecting...</mat-grid-tile>
-            <mat-grid-tile>Shivam Dwivedi</mat-grid-tile>
+            <mat-grid-tile>
+                <video class="w-100" autoplay #remote>
+                </video>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <video class="w-100" autoplay #local>
+                </video>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <video class="w-100" loop autoplay #four>
+                </video>
+            </mat-grid-tile>
 
 
            
@@ -49,12 +58,12 @@
                 style="width: 20rem;position:absolute;bottom: 3rem;">
                 <button mat-icon-button (click)="toggleCam()">
                     <mat-icon class="mat-icon-sm pt-0 material-icons-outlined text-mylight"
-                        [class.text-white]="toggleCam() == true" [class.text-mywhite]="toggleCam() == false">
+                       >
                         {{activeCallSettings.isCamEnable ? 'videocam' : 'videocam_off'}}</mat-icon>
                 </button>
                 <button mat-icon-button (click)="toggleMic()">
                     <mat-icon class="mat-icon-sm pt-0 material-icons-outlined text-mylight"
-                        [class.text-white]="toggleMic() == true" [class.text-mywhite]="toggleMic() == false">
+                        >
                         {{activeCallSettings.isMicEnable ? 'mic' : 'mic_off'}}</mat-icon>
                 </button>
 

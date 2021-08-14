@@ -35,10 +35,11 @@ export class ChatBoxComponent implements OnInit, AfterViewChecked {
 
 
     /**
-     * Subscribe the newMessage Subject to get
+     * Subscribe the newMessage Subject to get the new chat
      * and update the chat array with new message
      */
     this.chatService.newMessage.subscribe((chat) => {
+      console.log(`cccccccccccccccccccccccccccccccc`,chat);
       this.chats.push(chat);
     });
   }
