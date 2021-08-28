@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "~10.2.4",
     "@angular/router": "~10.2.4",
     "@types/jquery": "^3.5.4",
+    "animate.css": "^4.1.1",
     "bootstrap": "^4.4.1",
     "jquery": "^3.5.1",
     "ngx-emoji-picker": "^0.1.6",

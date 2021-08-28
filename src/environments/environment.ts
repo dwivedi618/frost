@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000/v1',
+  // apiUrl: 'http://localhost:3000/v1',192.168.1.105
+  apiUrl: 'http://192.168.1.105:3000',
+
   wsUrl: 'http://localhost:3000'
 };
 

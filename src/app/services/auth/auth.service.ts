@@ -10,9 +10,9 @@ export class AuthService {
   constructor( private http : HttpClient) { }
 
   userLogin(credential){
-    return this.http.post(`${environment.apiUrl}/v1/login`,credential);
+    return this.http.post(`${environment.apiUrl}/v1/user/login`,credential);
   }
   userSignup(newCredential){
-    return this.http.post(`${environment.apiUrl}/v1/login`,newCredential);
+    return this.http.post(`${environment.apiUrl}/v1/user/signup`,newCredential);
   }
 }

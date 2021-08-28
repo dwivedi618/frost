@@ -47,3 +47,11 @@ export const ExpandInOutAnimation = [
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
   ]
+
+  export const ExpandColorScreenAnimation = [
+    trigger('detailExpand', [
+      state('collapsed', style({width: '50px', minWidth: '50px'})),
+      state('expanded', style({width: '100px'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ]
