@@ -4,12 +4,12 @@
 
 export const environment = {
   production: false,
-  // apiUrl: 'http://192.168.1.101:3000/v1',
-  // wsUrl: 'http://192.168.1.101:3000'
+  apiUrl: 'http://192.168.1.101:3000/v1',
+  wsUrl: 'http://192.168.1.101:3000'
   
 
-  apiUrl: 'http://192.168.225.247:3000/v1',
-  wsUrl: 'http://192.168.225.247:3000'
+  // apiUrl: 'http://192.168.225.247:3000/v1',
+  // wsUrl: 'http://192.168.225.247:3000'
 };
 
 /*

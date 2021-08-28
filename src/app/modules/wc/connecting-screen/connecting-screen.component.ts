@@ -177,7 +177,10 @@ export class ConnectingScreenComponent implements OnInit {
 
     if(!this.localStream){
       try{
-        this.localStream = await navigator.mediaDevices.getUserMedia({audio: false, video:true})
+        // this.localStream = await navigator.mediaDevices.getUserMedia({audio: false, video:true})
+        console.log('MMMMMMMMMMMMMMMMMEEEEEEEEEDDDDDDDDDDIIIIIIII',navigator.mediaDevices);
+        //@ts-ignore
+        this.localStream = await navigator.mediaDevices.getDisplayMedia({video:true})
         this.local.nativeElement.srcObject = this.localStream;
       }catch(e){
         console.error('Error in getting user media from handle offer');
