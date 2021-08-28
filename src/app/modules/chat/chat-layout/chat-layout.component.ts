@@ -1,3 +1,4 @@
+import { AlertService } from './../../../services/alert/alert.service';
 import { ConnectingScreenComponent } from 'src/app/modules/wc/connecting-screen/connecting-screen.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -25,7 +26,8 @@ export class ChatLayoutComponent implements OnInit {
     public dialog : MatDialog,
     public activatedRoute: ActivatedRoute,
     private chatService: ChatService,
-    public wcDailog : WcdialogService
+    public wcDailog : WcdialogService,
+    public alertService : AlertService
   ) {
     route.events.pipe(
       filter(event => event instanceof NavigationEnd)
@@ -76,6 +78,9 @@ export class ChatLayoutComponent implements OnInit {
 
   connectCall(){
     this.wcDailog.openWcDialog()
+    this.alertService.alertWithAction('Please verify your account by OTP sent to registered Email and Phone','verify').subscribe(res =>{
+
+    })
   }
 
   

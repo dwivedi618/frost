@@ -1,3 +1,4 @@
+import { AlertService } from './../../services/alert/alert.service';
 import { ConnectingScreenComponent } from 'src/app/modules/wc/connecting-screen/connecting-screen.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from './../../sharedModules/shared/shared.module';
@@ -15,7 +16,8 @@ import { UploadWIthPreviewComponent } from './upload-with-preview/upload-with-pr
 import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { WcdialogService } from 'src/app/services/wc/wcdialog.service';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSnackBar, MatSnackBarRef, MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     ChatLayoutComponent,
@@ -30,24 +32,14 @@ import {MatGridListModule} from '@angular/material/grid-list';
     SharedModule,
     RouterModule,
     ChatRoutingModule,
-    MatDialogModule,
+    // MatDialogModule,
     DragDropModule,
     MatGridListModule
-    
+
 
 
   ],
-  providers: [
-    {
-      provide: MatDialogRef,
-      useValue: {}
-    },
-    {
-      provide: MatDialog,
-      useValue: {}
-    },
-   
-  ],
+
 
 })
 export class ChatModule { }

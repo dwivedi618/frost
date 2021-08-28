@@ -1,3 +1,4 @@
+import { AlertWithActionComponent } from './../../components/alert-with-action/alert-with-action.component';
 import { MessageBarComponent } from './../../components/message-bar/message-bar.component';
 import { HeaderComponent } from './../../components/header/header.component';
 
@@ -19,6 +20,7 @@ import { ContentEditableDirective } from 'src/app/customDirectives/content-edita
     AvatarComponent,
     SearchComponent,
     MessageBarComponent,
+    AlertWithActionComponent,
     ContentEditableDirective,
 
   ],
@@ -38,6 +40,7 @@ import { ContentEditableDirective } from 'src/app/customDirectives/content-edita
     HeaderComponent,
     AvatarComponent,
     SearchComponent,
+    // AlertWithActionComponent,
     MessageBarComponent,
     NgxEmojiPickerModule,
     FormsModule,

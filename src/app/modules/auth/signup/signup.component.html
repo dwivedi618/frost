@@ -1,1 +1,74 @@
-<p>signup works!</p>
+<section style="width: 100vw;height: 100vh;" class="layout">
+    <div class="">
+        <div class="">
+            <!-- <pre >{{signupForm.value | json}}</pre> -->
+            <form [formGroup]="signupForm" class="login-form p-5" id="form" style="min-width:15rem ;">
+                <mat-card class="box_shadow_1 px-md-5 " style="width: 25rem;font-size: 12px;" >
+                    <h1 class="text-center text-uppercase">Sign Up</h1>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>First name</mat-label>
+                                <input matInput type="text" placeholder="Ex : John" formControlName="firstName">
+                                <mat-error *ngIf="signupForm.get('firstName').errors?.required" class="">
+                                    {{signupForm.get('phoneNumber').errors?.required}}</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">    
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>Last name</mat-label>
+                                <input matInput type="text" placeholder="Ex : Doe" formControlName="lastName">
+                                <mat-error *ngIf="signupForm.get('lastName').errors?.required" class="">
+                                    {{signupForm.get('lastName').errors?.required}}</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="email" placeholder="email " formControlName="email">
+                        <mat-error *ngIf="signupForm.get('email').errors?.email" class="">
+                            {{signupForm.get('email').errors?.email}}</mat-error>
+                    </mat-form-field>
+
+                    <!-- <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Phone</mat-label>
+                        <input matInput type="tel" placeholder="phone" formControlName="phoneNumber">
+                        <mat-error *ngIf="signupForm.get('phoneNumber').errors?.pattern" class="">
+                            {{signupForm.get('phoneNumber').errors?.pattern}}</mat-error>
+                    </mat-form-field> -->
+
+                  
+
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="{{isPasswordHidden ? 'password' :'text'}}" placeholder="Password"
+                            formControlName="password">
+                        <button mat-button type="button" matSuffix (click)="isPasswordHidden = !isPasswordHidden"
+                            class="">
+                            <small class="pt-0">{{(isPasswordHidden ? 'Show' : 'Hide') | uppercase}}</small>
+                        </button>
+                    </mat-form-field>
+
+                    <button mat-button type="button" class="float-right"><small>Need Help?</small></button>
+                    <button mat-raised-button type="submit" color="primary" (click)="submitLoginCredential()"
+                        class="w-100">
+                        <small *ngIf='isSigning'>Please Wait...</small>
+                        <small *ngIf='!isSigning'>Sign Up</small>
+                    </button>
+                    <h3 class="text-center mt-2 " style="font-weight: 600; color: #ccc;"> OR CONTINUE WITH</h3>
+                    <!--THIRD PARTY API LOGIN/SIGNUP -->
+                    <app-third-party-api-login-signup class="animate__animated animate__fadeIn">
+                    </app-third-party-api-login-signup>
+                    <hr>
+
+
+                    <button mat-button type="button" class="w-100 animate__animated animate__fadeIn" routerLink="../"><small
+                            class="text-center">ALREADY HAVE AN ACCOUNT</small></button>
+
+                </mat-card>
+            </form>
+        </div>
+    </div>
+</section>
